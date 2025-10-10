@@ -13,7 +13,7 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
     [SerializeField] private Button _characterSelectBtn;
     [SerializeField] private TextMeshProUGUI _amountText;
     [SerializeField] private GameObject _coinIcon;
-    [SerializeField] private GameObject _closedLock;
+    [SerializeField] private GameObject _lockedOverlay;
     [SerializeField] private GameObject _openLock;
     [SerializeField] private GameObject _errorPanel;
 
@@ -26,10 +26,9 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
         Inventory inventory = Inventory.Instance;
         if (inventory.Currency >= _amountToUnlock)
         {
-            inventory.AddCharacter(_id);
-            Inventory.Instance.UnlockCharacter(_id); // actually saves the unlocked character
+            inventory.UnlockCharacter(_id, _amountToUnlock); // actually saves the unlocked character and updates currency
 
-            _closedLock.SetActive(false);
+            _lockedOverlay.SetActive(false);
             _characterSelectBtn.enabled = true;
             PlayerPrefs.SetInt("UnlockedCharacters", _id);
         }
@@ -51,7 +50,7 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
     private void UnlockCharacter()
     {
         _coinIcon.SetActive(false);
-        _closedLock.SetActive(false);
+        _lockedOverlay.SetActive(false);
         _openLock.SetActive(false);
         _characterSelectBtn.enabled = true;
     }

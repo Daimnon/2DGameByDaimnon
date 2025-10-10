@@ -59,7 +59,7 @@ public class SaveDataManager : MonoBehaviour
             saveable.LoadData(_gameData);
         }
 
-        Debugger.Log("Data Loaded");
+        Debugger.Log("Data Loaded\n" + _gameData.ToString());
     }
 
     public void SaveGame()
@@ -72,6 +72,7 @@ public class SaveDataManager : MonoBehaviour
         }
 
         _fileDataHandler.Save(_gameData); // actually saves the data
+        Debugger.Log("Data Saved\n" + _gameData.ToString());
     }
 
     private List<ISaveable> FindAllSaveableGameObjects() // search for all Monobehaviours with the ISaveable Interface

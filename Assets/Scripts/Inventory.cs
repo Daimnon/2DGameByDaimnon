@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -27,6 +28,12 @@ public class Inventory : MonoBehaviour
     private HashSet<int> _unlockedCharacters = new(1) { 0 };
     public HashSet<int> UnlockedCharacters => _unlockedCharacters;
 
+    private Action<int> _updateCurrencyEvent;
+    public Action<int> UpdateCurrencyEvent { get => _updateCurrencyEvent; set => _updateCurrencyEvent = value; }
+
+    /*private Action<int[]> _unlockedCharacterAction;
+    public Action<int[]> UnlockedCharacterEvent { get => _unlockedCharacterAction; set => _unlockedCharacterAction = value; }*/
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,16 +49,29 @@ public class Inventory : MonoBehaviour
     public void AddCurrency(int amount)
     {
         _currency += amount;
+        _updateCurrencyEvent.Invoke(_currency);
     }
-    public void AddCharacter(int charID)
+    public void ReduceCurrency(int amount)
     {
-        _unlockedCharacters.Add(charID);
+        _currency -= amount;
+        _updateCurrencyEvent.Invoke(_currency);
     }
+    public void UnlockCharacter(int charID, int price) // handle characters unlocks
+    {
+        // immidiatly save after unlocking character. add in hash set returns a success or failed bool
+        if (_unlockedCharacters.Add(charID))
+        {
+            ReduceCurrency(price);
+            SaveDataManager.Instance.SaveGame();
+        }
+        //_unlockedCharacterAction.Invoke(_unlockedCharacters.ToArray());
+    }
+    public bool IsCharacterUnlocked(int charID) => _unlockedCharacters.Contains(charID); // checks if character is already unlocked.
 
     public void CreateNewInventory() // reset inventory
     {
         _currency = 0;
-        _unlockedCharacters.Clear();
+        _unlockedCharacters = new() { 0 };
     }
     public void LoadFromData(GameData data)
     {
@@ -67,10 +87,18 @@ public class Inventory : MonoBehaviour
         data.UnlockedCharacters = _unlockedCharacters.ToArray();
     }
 
-    public bool IsCharacterUnlocked(int id) => _unlockedCharacters.Contains(id); // checks if character is already unlocked.
-    public void UnlockCharacter(int id) // handle characters unlocks
+    [ContextMenu("GiveMeMoneyyy")]
+    private void MoneyCheat()
     {
-        // immidiatly save after unlocking character. add in hash set returns a success or failed bool
-        if (_unlockedCharacters.Add(id)) SaveDataManager.Instance.SaveGame();
+        AddCurrency(10000);
+    }
+
+    [ContextMenu("GiveMeCharactersss")]
+    private void CharacterCheat()
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            UnlockCharacter(i, 0);
+        }
     }
 }
