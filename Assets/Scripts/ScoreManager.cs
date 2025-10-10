@@ -32,7 +32,7 @@ public class ScoreManager : MonoBehaviour
         _flipsCounter.text = _totalScore.ToString();
     }
 
-    private IEnumerator PlayAddScoreEffectRoutine()
+    private IEnumerator PlayAddScoreEffectRoutine() // a reusable coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         float timeElapsed = 0f;
         while (timeElapsed < _flipIconBounceTime)

@@ -4,11 +4,12 @@ using System.Linq;
 
 public class SaveDataManager : MonoBehaviour
 {
-    private static SaveDataManager _instance;
-    public static SaveDataManager Instance => _instance;
+    private static SaveDataManager _instance = null;     /* shortened singleton pattern in unity */
+    public static SaveDataManager Instance => _instance; /* shortened singleton pattern in unity */
 
     private GameData _gameData;
     private List<ISaveable> _saveableGameObjects;
+    private HashSet<int> _unlockedCharacters = new();
 
     [Header("File Storage Confing")]
     [SerializeField] private string _saveFileName = "SaveGame.Json";
@@ -16,6 +17,7 @@ public class SaveDataManager : MonoBehaviour
 
     private void Awake()
     {
+        /* singleton pattern in unity, must be in awake */
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -24,27 +26,26 @@ public class SaveDataManager : MonoBehaviour
         {
             _instance = this;
         }
+        /* singleton pattern in unity, must be in awake */
     }
 
     private void Start()
     {
-        _fileDataHandler = new(Application.persistentDataPath, _saveFileName);
-        _saveableGameObjects = FindAllSaveableGameObjects();
+        _fileDataHandler = new(Application.persistentDataPath, _saveFileName); // set the file handler on the correct file address
+        _saveableGameObjects = FindAllSaveableGameObjects(); // get all saveables
         LoadGame();
     }
-    private void OnApplicationQuit()
-    {
-        SaveGame();
-    }
+    private void OnApplicationQuit() => SaveGame(); // cause I only save when I exit the game I shortened the callback usage
 
-    public void NewGame()
+    public void NewGame() // creates a new save file
     {
         _gameData = new();
+        _unlockedCharacters.Clear();
     }
 
-    public void LoadGame()
+    public void LoadGame() // get the data from the save file and import it while doing other neccessary operations.
     {
-        _gameData = _fileDataHandler.Load();
+        _gameData = _fileDataHandler.Load(); // update the gameData script with the save file's content
 
         if (_gameData == null)
         {
@@ -52,7 +53,9 @@ public class SaveDataManager : MonoBehaviour
             NewGame();
         }
 
-        foreach (ISaveable saveable in _saveableGameObjects)
+        Inventory.Instance.LoadFromData(_gameData); // update Inventory before everything loads
+
+        foreach (ISaveable saveable in _saveableGameObjects) // calls "LoadGame" method in all ISaveables which should apply the changes and do the "actual load".
         {
             saveable.LoadData(_gameData);
         }
@@ -62,15 +65,17 @@ public class SaveDataManager : MonoBehaviour
 
     public void SaveGame()
     {
-        foreach (ISaveable saveable in _saveableGameObjects)
+        Inventory.Instance.SaveToData(ref _gameData);
+
+        foreach (ISaveable saveable in _saveableGameObjects) // calls "SaveGame" method in all ISaveables which should check for the changes and register them.
         {
             saveable.SaveData(ref _gameData);
         }
 
-        _fileDataHandler.Save(_gameData);
+        _fileDataHandler.Save(_gameData); // actually saves the data
     }
 
-    private List<ISaveable> FindAllSaveableGameObjects()
+    private List<ISaveable> FindAllSaveableGameObjects() // search for all Monobehaviours with the ISaveable Interface
     {
         IEnumerable<ISaveable> saveableGameObjects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<ISaveable>();
         return new List<ISaveable>(saveableGameObjects);

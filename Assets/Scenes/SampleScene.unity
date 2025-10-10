@@ -528,6 +528,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _characterSelectionCanvasGo
       value: 
       objectReference: {fileID: 1263275835}
@@ -770,6 +774,10 @@ PrefabInstance:
       objectReference: {fileID: -8954922719054324860, guid: 0a4af6ff2ab4fd04baddbe888087078c, type: 3}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _slideController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
@@ -1917,6 +1925,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _characterSelectionCanvasGo
       value: 
       objectReference: {fileID: 1263275835}
@@ -2116,7 +2128,7 @@ MonoBehaviour:
   _groundTag: LevelCollider
   _timeToWaitForLevelToReset: 4
   _crashParticles: {fileID: 1633199880}
-  _slideController: {fileID: 1016315647}
+  _playerController: {fileID: 1016315647}
 --- !u!1 &418927265
 GameObject:
   m_ObjectHideFlags: 0
@@ -7184,6 +7196,10 @@ PrefabInstance:
       objectReference: {fileID: 6348125190926536001, guid: 91e21faffed172e429a0c362559a4be1, type: 3}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _slideController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
@@ -13644,6 +13660,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _characterSelectionCanvasGo
       value: 
       objectReference: {fileID: 1263275835}
@@ -13870,6 +13890,10 @@ PrefabInstance:
       objectReference: {fileID: 3785656951938812660, guid: fe022359aa1337f4daac67f795cca1b5, type: 3}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _slideController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
@@ -31856,6 +31880,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _characterSelectionCanvasGo
       value: 
       objectReference: {fileID: 1263275835}
@@ -36902,6 +36930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _characterSelectionCanvasGo
       value: 
       objectReference: {fileID: 1263275835}
@@ -37033,6 +37065,10 @@ PrefabInstance:
       objectReference: {fileID: 911225006}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: _slideController
+      value: 
+      objectReference: {fileID: 1016315647}
+    - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: _playerController
       value: 
       objectReference: {fileID: 1016315647}
     - target: {fileID: 785912998460724384, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}

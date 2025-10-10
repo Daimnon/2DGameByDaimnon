@@ -10,7 +10,7 @@ public class CrashDetector : MonoBehaviour
     [SerializeField] private string _groundTag = "LevelCollider"; // the tag of the player
     [SerializeField] private float _timeToWaitForLevelToReset = 2.0f;
     [SerializeField] private ParticleSystem _crashParticles;
-    [SerializeField] private PlayerSlideController _slideController;
+    [SerializeField] private PlayerSlideController _playerController;
 
     private void OnTriggerEnter2D(Collider2D collision) // trigger detection on this gameObjcet's collider
     {
@@ -20,12 +20,12 @@ public class CrashDetector : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForResetAfterWin()
+    private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _crashParticles.Play();
-        _slideController.DisableInputs();
-        _slideController.SE2D.speed = 0.0f;
-        _slideController.SE2D.useFriction = true;
+        _playerController.DisableInputs();
+        _playerController.SE2D.speed = 0.0f;
+        _playerController.SE2D.useFriction = true;
         _hasCrashed = true;
 
         yield return new WaitForSeconds(_timeToWaitForLevelToReset); // WaitForSeconds is one of many scripts that wait for stuff

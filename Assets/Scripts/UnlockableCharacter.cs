@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
-public class UnlockableCharacter : MonoBehaviour
+public class UnlockableCharacter : MonoBehaviour, ISaveable
 {
     private const float ERROR_PANEL_TIME = 1.0f;
     private Coroutine _errorPanelRoutine;
@@ -24,14 +25,11 @@ public class UnlockableCharacter : MonoBehaviour
     {
         if (Inventory.Instance.UnlockedCharacters.Contains(_id))
         {
-            _coinIcon.SetActive(false);
-            _closedLock.SetActive(false);
-            _openLock.SetActive(false);
-            _characterSelectBtn.enabled = true;
+            UnlockCharacter();
         }
         else
         {
-            _amountText.text = _amountToUnlock.ToString();
+            
         }
     }
 
@@ -41,6 +39,8 @@ public class UnlockableCharacter : MonoBehaviour
         if (inventory.Currency >= _amountToUnlock)
         {
             inventory.AddCharacter(_id);
+            SaveDataManager.Instance.UnlockCharacter(_id); // actually saves the unlocked character
+
             _closedLock.SetActive(false);
             _characterSelectBtn.enabled = true;
             PlayerPrefs.SetInt("UnlockedCharacters", _id);
@@ -51,12 +51,36 @@ public class UnlockableCharacter : MonoBehaviour
         }
     }
 
-    private IEnumerator ErrorPanelRoutine()
+    private IEnumerator ErrorPanelRoutine() // a reusable coroutined sequence that we can use a synchronicly, timing action within REAL TIME constraints
     {
         _errorPanel.SetActive(true);
         yield return new WaitForSecondsRealtime(ERROR_PANEL_TIME);
 
         _errorPanel.SetActive(false);
         _errorPanelRoutine = null; 
+    }
+
+    private void UnlockCharacter()
+    {
+        _coinIcon.SetActive(false);
+        _closedLock.SetActive(false);
+        _openLock.SetActive(false);
+        _characterSelectBtn.enabled = true;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (SaveDataManager.Instance.IsCharacterUnlocked(_id))
+        {
+            UnlockCharacter();
+        }
+        else
+        {
+            _amountText.text = _amountToUnlock.ToString();
+        }
+    }
+    public void SaveData(ref GameData data)
+    {
+        // nothing to do here
     }
 }

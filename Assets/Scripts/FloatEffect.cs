@@ -18,7 +18,7 @@ public class FloatEffect : MonoBehaviour
         _floatEffectRoutine = StartCoroutine(PlayFloatEffectRoutine());
     }
 
-    private IEnumerator PlayFloatEffectRoutine()
+    private IEnumerator PlayFloatEffectRoutine() // a reusable coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         float timeElapsed = 0f;
         float startY = transform.position.y;

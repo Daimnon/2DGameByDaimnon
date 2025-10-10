@@ -1,5 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public enum CharacterID
@@ -15,7 +15,7 @@ public enum CharacterID
     Gold = 8
 }
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, ISaveable
 {
     public static Inventory _instance = null;
     public static Inventory Instance => _instance;
@@ -23,8 +23,8 @@ public class Inventory : MonoBehaviour
     private int _currency;
     public int Currency => _currency;
 
-    private List<int> _unlockedCharacters = new(1) { 0 };
-    public List<int> UnlockedCharacters => _unlockedCharacters;
+    private HashSet<int> _unlockedCharacters = new(1) { 0 };
+    public HashSet<int> UnlockedCharacters => _unlockedCharacters;
 
     private void Awake()
     {
@@ -45,5 +45,36 @@ public class Inventory : MonoBehaviour
     public void AddCharacter(int charID)
     {
         _unlockedCharacters.Add(charID);
+    }
+
+    public void LoadFromData(GameData data)
+    {
+        _currency = data.Currency;
+
+        // short if = if ? there are UnlockedCharacters in GameData, copy the array to a HashSet (list with no duplicates), else : create new UnlockedCharacters HashSet.
+        // when creating new saveData always unlock first character
+        _unlockedCharacters = data.UnlockedCharacters != null ? new HashSet<int>(data.UnlockedCharacters) : new HashSet<int> { 0 };
+    }
+    public void SaveToData(ref GameData data)
+    {
+        data.Currency = _currency;
+        data.UnlockedCharacters = _unlockedCharacters.ToArray();
+    }
+
+    public bool IsCharacterUnlocked(int id) => _unlockedCharacters.Contains(id); // checks if character is already unlocked.
+    public void UnlockCharacter(int id) // handle characters unlocks
+    {
+        // immidiatly save after unlocking character. add in hash set returns a success or failed bool
+        if (_unlockedCharacters.Add(id)) SaveDataManager.Instance.SaveGame();
+    }
+
+    // need to verify if works
+    public void LoadData(GameData data)
+    {
+        _currency = (int)data.Currency;
+    }
+    public void SaveData(ref GameData data)
+    {
+        data.Currency = _currency;
     }
 }

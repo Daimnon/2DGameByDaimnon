@@ -82,7 +82,7 @@ public class PlayerSlideController : MonoBehaviour
         _moveInputValue = moveVector; // caching the input value.
     }
 
-    // note that I take the Vecto2 and Rigidbody2D as arguments in the method for a possible future repurpose.
+    // note that I take the Vector2 and Rigidbody2D as arguments in the method for a possible future repurpose.
     private void Move(Vector2 moveVector, Rigidbody2D rb2D)
     {
         float moveInput = moveVector.y; // we cach the value of specifically the y in case we need to use it in more than one place.

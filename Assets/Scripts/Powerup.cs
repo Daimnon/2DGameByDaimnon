@@ -4,7 +4,7 @@ using UnityEngine;
 public class Powerup : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player"; // the tag of the player, const == cannot and should not be changed
-    private PlayerSlideController _playerSlideController;
+    private PlayerSlideController _playerController;
     
     [SerializeField] private PowerupSO _powerup;
     [SerializeField] private SpriteRenderer _sR;
@@ -14,19 +14,19 @@ public class Powerup : MonoBehaviour
     {
         if (collision.CompareTag(PLAYER_TAG))
         {
-            _playerSlideController = collision.GetComponent<PlayerSlideController>();
-            if (_playerSlideController) StartCoroutine(ApplyPowerupRoutine());
+            _playerController = collision.GetComponent<PlayerSlideController>();
+            if (_playerController) StartCoroutine(ApplyPowerupRoutine());
         }
     }
 
-    private IEnumerator ApplyPowerupRoutine()
+    private IEnumerator ApplyPowerupRoutine() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
-        _playerSlideController.ActivatePowerup(_powerup);
+        _playerController.ActivatePowerup(_powerup);
         _sR.enabled = false;
         _collider2D.enabled = false;
 
         yield return new WaitForSeconds(_powerup.Duration);
-        _playerSlideController.DeactivatePowerup(_powerup);
+        _playerController.DeactivatePowerup(_powerup);
 
         yield return null;
         Destroy(gameObject);

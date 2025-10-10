@@ -17,7 +17,7 @@ public class FinishLine : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForResetAfterWin()
+    private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _victoryParticles.Play();
 
