@@ -15,7 +15,8 @@ public enum CharacterID
     Gold = 8
 }
 
-public class Inventory : MonoBehaviour, ISaveable
+// automatically updated by SaveDataManager
+public class Inventory : MonoBehaviour
 {
     public static Inventory _instance = null;
     public static Inventory Instance => _instance;
@@ -47,6 +48,11 @@ public class Inventory : MonoBehaviour, ISaveable
         _unlockedCharacters.Add(charID);
     }
 
+    public void CreateNewInventory() // reset inventory
+    {
+        _currency = 0;
+        _unlockedCharacters.Clear();
+    }
     public void LoadFromData(GameData data)
     {
         _currency = data.Currency;
@@ -66,15 +72,5 @@ public class Inventory : MonoBehaviour, ISaveable
     {
         // immidiatly save after unlocking character. add in hash set returns a success or failed bool
         if (_unlockedCharacters.Add(id)) SaveDataManager.Instance.SaveGame();
-    }
-
-    // need to verify if works
-    public void LoadData(GameData data)
-    {
-        _currency = (int)data.Currency;
-    }
-    public void SaveData(ref GameData data)
-    {
-        data.Currency = _currency;
     }
 }

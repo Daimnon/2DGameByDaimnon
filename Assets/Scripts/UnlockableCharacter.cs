@@ -21,25 +21,13 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
     [SerializeField] private int _id;
     [SerializeField] private int _amountToUnlock;
 
-    private void Start()
-    {
-        if (Inventory.Instance.UnlockedCharacters.Contains(_id))
-        {
-            UnlockCharacter();
-        }
-        else
-        {
-            
-        }
-    }
-
     public void Unlock()
     {
         Inventory inventory = Inventory.Instance;
         if (inventory.Currency >= _amountToUnlock)
         {
             inventory.AddCharacter(_id);
-            SaveDataManager.Instance.UnlockCharacter(_id); // actually saves the unlocked character
+            Inventory.Instance.UnlockCharacter(_id); // actually saves the unlocked character
 
             _closedLock.SetActive(false);
             _characterSelectBtn.enabled = true;
@@ -70,7 +58,7 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
 
     public void LoadData(GameData data)
     {
-        if (SaveDataManager.Instance.IsCharacterUnlocked(_id))
+        if (Inventory.Instance.IsCharacterUnlocked(_id))
         {
             UnlockCharacter();
         }

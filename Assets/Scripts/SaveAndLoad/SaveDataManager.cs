@@ -9,7 +9,6 @@ public class SaveDataManager : MonoBehaviour
 
     private GameData _gameData;
     private List<ISaveable> _saveableGameObjects;
-    private HashSet<int> _unlockedCharacters = new();
 
     [Header("File Storage Confing")]
     [SerializeField] private string _saveFileName = "SaveGame.Json";
@@ -40,7 +39,7 @@ public class SaveDataManager : MonoBehaviour
     public void NewGame() // creates a new save file
     {
         _gameData = new();
-        _unlockedCharacters.Clear();
+        Inventory.Instance.CreateNewInventory();
     }
 
     public void LoadGame() // get the data from the save file and import it while doing other neccessary operations.
@@ -65,7 +64,7 @@ public class SaveDataManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Inventory.Instance.SaveToData(ref _gameData);
+        Inventory.Instance.SaveToData(ref _gameData); // save Inventory before everything saves
 
         foreach (ISaveable saveable in _saveableGameObjects) // calls "SaveGame" method in all ISaveables which should check for the changes and register them.
         {
