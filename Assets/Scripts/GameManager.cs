@@ -49,9 +49,12 @@ public class GameManager : MonoBehaviour
     public void OnLevelStart()
     {
         _onCheckLevelIndexEvent?.Invoke(_levelIndex);
+        Debugger.Log("Invoked _onCheckLevelIndexEvent");
+
         _finishLine.OnLevelFinished += OnFinishedGame;
-        Debugger.Log("Invoked OnLevelFinished");
         Time.timeScale = TIME_REGULAR; // unpause
+
+        StartTimer(_maxLevelTime[_levelIndex -1]);
     }
     public void SetLevelFinished(bool isTrue)
     {
@@ -71,7 +74,7 @@ public class GameManager : MonoBehaviour
             if (_crashDetector.HasCrashed)
             {
                 timeLeft = 0.0f;
-                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex - 1], timeLeft);
                 Debugger.Log("Invoked _onUpdateTimeScoreEvent when Player Crashed");
                 yield return null;
 
@@ -84,7 +87,7 @@ public class GameManager : MonoBehaviour
 
             if (_finishedLevel)
             {
-                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex - 1], timeLeft);
                 Debugger.Log("Invoked _onUpdateTimeScoreEvent when Finished Level");
                 yield return null;
 
@@ -98,7 +101,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft); // if we reached here it's penalty time.
+        _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex - 1], timeLeft); // if we reached here it's penalty time.
         Debugger.Log("Invoked _onUpdateTimeScoreEvent when Player is in Overtime");
 
         _levelTimerRoutine = null;

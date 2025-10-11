@@ -29,5 +29,6 @@ public class FinishLine : MonoBehaviour
         _victoryParticles.Play();
         yield return new WaitForSeconds(_victoryDelay); // WaitForSeconds is one of many scripts that wait for stuff
         _onLevelFinished?.Invoke();
+        Debugger.Log("Invoked _onLevelFinished");
     }
 }
