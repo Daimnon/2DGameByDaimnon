@@ -15,6 +15,8 @@ public class PlayerSlideController : MonoBehaviour
     private float _totalRot = 0.0f;
     private int _flipCount = 0;
 
+    private bool _isCalculatingFlips = true;
+
     [Header("Systems")]
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private CrashDetector _crashDetector;
@@ -46,6 +48,11 @@ public class PlayerSlideController : MonoBehaviour
     {
         _moveAction = _controls.Player.Move; // this is how we hook the actual action to our reference.
         _moveAction.Enable(); // we need to enable the action so it works.
+        _crashDetector.OnCrash += Crashed;
+    }
+    private void OnDestroy()
+    {
+        _crashDetector.OnCrash -= Crashed;
     }
 
     // we do not necessarily do the actual movement here because the frame rate is not in sync with the physical frames.
@@ -104,10 +111,10 @@ public class PlayerSlideController : MonoBehaviour
         else if (rotateInput > 0)
             rb2D.AddTorque(-_torqueAmount * Time.fixedDeltaTime);
     }
-
+    
     private void CalculateFlips()
     {
-        if (_crashDetector.HasCrashed) return;
+        if (!_isCalculatingFlips) return;
 
         float currentRot = transform.rotation.eulerAngles.z;
         _totalRot += Mathf.DeltaAngle(_prevRot, currentRot);
@@ -120,6 +127,14 @@ public class PlayerSlideController : MonoBehaviour
         }
         _prevRot = currentRot;
     }
+    private void Crashed()
+    {
+        DisableInputs();
+        _sE2D.speed = 0.0f;
+        _sE2D.useFriction = true;
+        _isCalculatingFlips = false;
+    }
+
     public void ActivatePowerup(PowerupSO powerup)
     {
         _powerupDeactivatedParticles.Stop();

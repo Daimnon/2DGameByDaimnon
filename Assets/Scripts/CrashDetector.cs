@@ -1,3 +1,4 @@
+using System;
 using System.Collections; // for IEnumerator
 using UnityEngine;
 using UnityEngine.SceneManagement; // for SceneManager
@@ -7,28 +8,28 @@ public class CrashDetector : MonoBehaviour
     private bool _hasCrashed = false;
     public bool HasCrashed => _hasCrashed;
 
+    private Action _onCrash;
+    public Action OnCrash { get => _onCrash; set => _onCrash = value; }
+
     [SerializeField] private string _groundTag = "LevelCollider"; // the tag of the player
-    [SerializeField] private float _timeToWaitForLevelToReset = 2.0f;
+    [SerializeField] private float _afterCrashDelay = 2.0f;
     [SerializeField] private ParticleSystem _crashParticles;
-    [SerializeField] private PlayerSlideController _playerController;
 
     private void OnTriggerEnter2D(Collider2D collision) // trigger detection on this gameObjcet's collider
     {
         if (collision.CompareTag(_groundTag) && !_hasCrashed)
         {
-            StartCoroutine(WaitForResetAfterWin()); // quick and dirty use of coroutine, cause I hate Invoke("", time).
+            StartCoroutine(CrashRoutine()); // quick and dirty use of coroutine, cause I hate Invoke("", time).
         }
     }
 
-    private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
+    private IEnumerator CrashRoutine() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _crashParticles.Play();
-        _playerController.DisableInputs();
-        _playerController.SE2D.speed = 0.0f;
-        _playerController.SE2D.useFriction = true;
-        _hasCrashed = true;
+        _onCrash?.Invoke();
+        Debugger.Log("Invoked OnCrash");
 
-        yield return new WaitForSeconds(_timeToWaitForLevelToReset); // WaitForSeconds is one of many scripts that wait for stuff
-        SceneManager.LoadScene(0); // reloads the first level
+        yield return new WaitForSeconds(_afterCrashDelay); // WaitForSeconds is one of many scripts that wait for stuff
+        _hasCrashed = true;
     }
 }

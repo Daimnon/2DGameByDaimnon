@@ -21,17 +21,18 @@ public class InGameScoreDisplay : MonoBehaviour
     private void Start()
     {
         _flipsIconBounceEvent += ClearFlipBounceCoroutine;
-        _scoreManager.OnUpdateFlipScoreEvent += UpdateScore;
+        _scoreManager.OnUpdateFlipScoreEvent += UpdateFlipScore;
+        gameObject.SetActive(false);
     }
     private void OnDestroy()
     {
         _flipsIconBounceEvent -= ClearFlipBounceCoroutine;
     }
 
-    private void UpdateScore(int currentScore)
+    private void UpdateFlipScore(int currentFlipScore)
     {
         _addScoreEffectRoutine ??= StartCoroutine(_bounceEffect.PlayBounceEffectRoutine(_flipsIcon, _flipsIconBounceEvent));
-        _flipsCounter.text = currentScore.ToString();
+        _flipsCounter.text = currentFlipScore.ToString();
     }
     private void ClearFlipBounceCoroutine()
     {

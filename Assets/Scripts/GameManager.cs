@@ -1,7 +1,12 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //using UnityEngine.SceneManagement;
+
+// Next Button (if not last level - leads to next level, if crashed, restart level)
+//             (if last level send to level select, remember to add bool in gameData)
+//             (for if completed all levels and if so always apply send to next level)
 
 public class GameManager : MonoBehaviour
 {
@@ -26,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Data")]
     [SerializeField] private int _levelIndex;
-    [SerializeField] private int[] _maxLevelTime;
+    [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
 
     [Header("Systems")]
     [SerializeField] private CrashDetector _crashDetector;
@@ -105,6 +110,12 @@ public class GameManager : MonoBehaviour
         Debugger.Log("Invoked _onUpdateTimeScoreEvent when Player is in Overtime");
 
         _levelTimerRoutine = null;
+    }
+
+    public void NextButton()
+    {
+        // quick and dirty for keeping the game loop
+        SceneManager.LoadScene(0);
     }
 
     private void OnFinishedGame()

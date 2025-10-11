@@ -10,6 +10,9 @@ public class FinishLine : MonoBehaviour
     private Action _onLevelFinished;
     public Action OnLevelFinished { get => _onLevelFinished; set => _onLevelFinished = value; }
 
+    [Header("Systems")]
+    [SerializeField] private PlayerSlideController _playerController; // find a way to remove and still DisableInputs
+
     [Header("Data")]
     [SerializeField] private float _victoryDelay = 2.0f;
     
@@ -27,6 +30,8 @@ public class FinishLine : MonoBehaviour
     private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _victoryParticles.Play();
+        _playerController.DisableInputs();
+
         yield return new WaitForSeconds(_victoryDelay); // WaitForSeconds is one of many scripts that wait for stuff
         _onLevelFinished?.Invoke();
         Debugger.Log("Invoked _onLevelFinished");

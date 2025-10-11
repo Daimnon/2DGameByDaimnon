@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelIndex: 1
-  _maxLevelTime: 3c000000
+  _maxLevelTime: 28000000
   _crashDetector: {fileID: 0}
   _finishLine: {fileID: 0}
 --- !u!114 &3603926426847176615
