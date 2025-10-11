@@ -20,8 +20,10 @@ public class FinishLine : MonoBehaviour
     private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _victoryParticles.Play();
-
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int maxSceneCount = SceneManager.sceneCountInBuildSettings;
         yield return new WaitForSeconds(_timeToWaitForLevelToReset); // WaitForSeconds is one of many scripts that wait for stuff
-        //SceneManager.LoadScene(0); // reloads the first level
+        if (currentSceneIndex < maxSceneCount) SceneManager.LoadScene(currentSceneIndex+1); // reloads the first level
+        // else go to level selection
     }
 }

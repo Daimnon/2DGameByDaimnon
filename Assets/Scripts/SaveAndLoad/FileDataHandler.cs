@@ -33,7 +33,7 @@ public class FileDataHandler
             }
             catch (System.Exception e)
             {
-                Debugger.LogError($"Could not access {_dataDirectoryPath}, {_fileName}, {e}");
+                Debugger.LogError($"Could not find or access {_dataDirectoryPath}, {_fileName}, {e}");
             }
         }
         return loadedData;
@@ -55,7 +55,22 @@ public class FileDataHandler
         }
         catch (System.Exception e)
         {
-            Debugger.LogError($"Could not access {_dataDirectoryPath}, {_fileName}, {e}");
+            Debugger.LogError($"Could not find or access {_dataDirectoryPath}, {_fileName}, {e}");
+        }
+    }
+    public void DeleteSaveFile()
+    {
+        string fullPath = Path.Combine(_dataDirectoryPath, _fileName);
+        if (File.Exists(fullPath))
+        {
+            try
+            {
+                File.Delete(fullPath);
+            }
+            catch (System.Exception e)
+            {
+                Debugger.LogError($"Could not find or access {_dataDirectoryPath}, {_fileName}, {e}");
+            }
         }
     }
 }

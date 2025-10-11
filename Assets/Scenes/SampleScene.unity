@@ -205,7 +205,8 @@ GameObject:
   m_Component:
   - component: {fileID: 36640308}
   - component: {fileID: 36640307}
-  - component: {fileID: 36640309}
+  - component: {fileID: 36640311}
+  - component: {fileID: 36640310}
   m_Layer: 0
   m_Name: Cloud 1_0 (2)
   m_TagString: Untagged
@@ -283,7 +284,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &36640309
+--- !u!114 &36640310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,10 +293,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 36640306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 36640308}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -348,7 +348,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &36640311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36640306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 36640310}
 --- !u!1 &61901736
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,7 +508,8 @@ GameObject:
   m_Component:
   - component: {fileID: 70806414}
   - component: {fileID: 70806413}
-  - component: {fileID: 70806415}
+  - component: {fileID: 70806417}
+  - component: {fileID: 70806416}
   m_Layer: 0
   m_Name: Cloud 3_0
   m_TagString: Untagged
@@ -573,7 +587,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &70806415
+--- !u!114 &70806416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -582,10 +596,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 70806412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 70806414}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -638,7 +651,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &70806417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 70806412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 70806416}
 --- !u!1001 &150760599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1232,7 +1258,8 @@ GameObject:
   - component: {fileID: 237334873}
   - component: {fileID: 237334875}
   - component: {fileID: 237334872}
-  - component: {fileID: 237334871}
+  - component: {fileID: 237334877}
+  - component: {fileID: 237334876}
   m_Layer: 0
   m_Name: ShortTorque Powerup
   m_TagString: Untagged
@@ -1240,72 +1267,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &237334871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237334870}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 237334874}
-  _curve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.4
-      value: 0.9
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.6
-      value: 0.9
-      inSlope: -2.1412737
-      outSlope: -2.1412737
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.28704578
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _duration: 0.4
-  _yOffset: 0.2
 --- !u!114 &237334872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,6 +1388,84 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.05}
   m_Radius: 0.7
+--- !u!114 &237334876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237334870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.4
+      value: 0.9
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.6
+      value: 0.9
+      inSlope: -2.1412737
+      outSlope: -2.1412737
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.28704578
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _duration: 0.4
+  _heightOffset: 0.2
+--- !u!114 &237334877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237334870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 237334876}
 --- !u!1 &248864972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1437,7 +1476,8 @@ GameObject:
   m_Component:
   - component: {fileID: 248864974}
   - component: {fileID: 248864973}
-  - component: {fileID: 248864975}
+  - component: {fileID: 248864977}
+  - component: {fileID: 248864976}
   m_Layer: 0
   m_Name: Cloud 3_0 (3)
   m_TagString: Untagged
@@ -1515,7 +1555,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &248864975
+--- !u!114 &248864976
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1524,10 +1564,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 248864972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 248864974}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1580,7 +1619,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &248864977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248864972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 248864976}
 --- !u!1 &287481561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,7 +1643,8 @@ GameObject:
   m_Component:
   - component: {fileID: 287481563}
   - component: {fileID: 287481562}
-  - component: {fileID: 287481564}
+  - component: {fileID: 287481566}
+  - component: {fileID: 287481565}
   m_Layer: 0
   m_Name: Cloud 1_0
   m_TagString: Untagged
@@ -1669,7 +1722,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &287481564
+--- !u!114 &287481565
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1678,10 +1731,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 287481561}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 287481563}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -1734,7 +1786,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &287481566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287481561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 287481565}
 --- !u!1 &290010538
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,7 +1973,8 @@ GameObject:
   m_Component:
   - component: {fileID: 350755217}
   - component: {fileID: 350755216}
-  - component: {fileID: 350755218}
+  - component: {fileID: 350755220}
+  - component: {fileID: 350755219}
   m_Layer: 0
   m_Name: Cloud 2_0
   m_TagString: Untagged
@@ -1986,7 +2052,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &350755218
+--- !u!114 &350755219
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1995,10 +2061,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 350755215}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 350755217}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -2051,7 +2116,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.5
-  _yOffset: 0.1
+  _heightOffset: 0.1
+--- !u!114 &350755220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350755215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1397455973}
 --- !u!1001 &365665292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7190,7 +7268,8 @@ GameObject:
   m_Component:
   - component: {fileID: 427971070}
   - component: {fileID: 427971069}
-  - component: {fileID: 427971071}
+  - component: {fileID: 427971073}
+  - component: {fileID: 427971072}
   m_Layer: 0
   m_Name: Cloud 1_0 (1)
   m_TagString: Untagged
@@ -7268,7 +7347,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &427971071
+--- !u!114 &427971072
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7277,10 +7356,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 427971068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 427971070}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -7333,7 +7411,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 1
-  _yOffset: 0.4
+  _heightOffset: 0.4
+--- !u!114 &427971073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427971068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 427971072}
 --- !u!1001 &471280950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7661,7 +7752,8 @@ GameObject:
   m_Component:
   - component: {fileID: 599174382}
   - component: {fileID: 599174381}
-  - component: {fileID: 599174383}
+  - component: {fileID: 599174385}
+  - component: {fileID: 599174384}
   m_Layer: 0
   m_Name: Cloud 2_0 (2)
   m_TagString: Untagged
@@ -7739,7 +7831,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &599174383
+--- !u!114 &599174384
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7748,10 +7840,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 599174380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 599174382}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -7804,7 +7895,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &599174385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599174380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 599174384}
 --- !u!1 &599714811
 GameObject:
   m_ObjectHideFlags: 0
@@ -13047,6 +13151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769447369}
   - component: {fileID: 769447368}
+  - component: {fileID: 769447373}
   - component: {fileID: 769447372}
   - component: {fileID: 769447371}
   m_Layer: 0
@@ -13108,6 +13213,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11757442195f2ef468865a6319fc50ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &769447373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769447367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af4f569514ad53418f26597980101ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flipScore: 100
 --- !u!1 &793807147
 GameObject:
   m_ObjectHideFlags: 0
@@ -13295,9 +13413,10 @@ GameObject:
   - component: {fileID: 911225009}
   - component: {fileID: 911225008}
   - component: {fileID: 911225007}
-  - component: {fileID: 911225011}
+  - component: {fileID: 911225013}
+  - component: {fileID: 911225014}
   m_Layer: 5
-  m_Name: Score Canvas
+  m_Name: In Game Score Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13387,7 +13506,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &911225011
+--- !u!114 &911225013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -13396,13 +13515,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 911225006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0af4f569514ad53418f26597980101ea, type: 3}
+  m_Script: {fileID: 11500000, guid: d5ab7137777ec3e48b1b901101f35f23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flipScore: 100
+  _scoreManager: {fileID: 769447373}
   _flipsIcon: {fileID: 23066385}
   _flipsCounter: {fileID: 1523012844}
-  _flipsIconBounce:
+  _bounceEffect: {fileID: 911225014}
+--- !u!114 &911225014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911225006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15be638e19cd6ca49a0c8ed705e38fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _curve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -13453,9 +13585,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _flipIconBounceTime: 0.2
-  _startFlipIconBounceSize: {x: 1, y: 1, z: 1}
-  _endFlipIconBounceSize: {x: 1.2, y: 1.2, z: 0}
+  _duration: 0.2
+  _minIconBounceSize: {x: 1, y: 1, z: 1}
+  _maxIconBounceSize: {x: 1.2, y: 1.2, z: 1}
 --- !u!1 &961401108
 GameObject:
   m_ObjectHideFlags: 0
@@ -13681,7 +13813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345bd0df95a99d24fadcc2bb270f0314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreManager: {fileID: 911225011}
+  _scoreManager: {fileID: 769447373}
   _crashDetector: {fileID: 389396930}
   _rb2D: {fileID: 1016315642}
   _audioSource: {fileID: 1016315648}
@@ -24447,7 +24579,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1397455971}
   - component: {fileID: 1397455970}
-  - component: {fileID: 1397455972}
+  - component: {fileID: 1397455974}
+  - component: {fileID: 1397455973}
   m_Layer: 0
   m_Name: Cloud 2_0 (3)
   m_TagString: Untagged
@@ -24525,7 +24658,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1397455972
+--- !u!114 &1397455973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24534,10 +24667,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1397455969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1397455971}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -24590,7 +24722,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 1
-  _yOffset: 0.4
+  _heightOffset: 0.4
+--- !u!114 &1397455974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397455969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1397455973}
 --- !u!1 &1517800491
 GameObject:
   m_ObjectHideFlags: 0
@@ -24601,7 +24746,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1517800493}
   - component: {fileID: 1517800492}
-  - component: {fileID: 1517800494}
+  - component: {fileID: 1517800496}
+  - component: {fileID: 1517800495}
   m_Layer: 0
   m_Name: Cloud 3_0 (5)
   m_TagString: Untagged
@@ -24679,7 +24825,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1517800494
+--- !u!114 &1517800495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24688,10 +24834,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1517800491}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1517800493}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -24744,7 +24889,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.5
-  _yOffset: 0.1
+  _heightOffset: 0.1
+--- !u!114 &1517800496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517800491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1517800495}
 --- !u!1 &1523012842
 GameObject:
   m_ObjectHideFlags: 0
@@ -30537,7 +30695,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1749833081}
   - component: {fileID: 1749833080}
-  - component: {fileID: 1749833082}
+  - component: {fileID: 1749833084}
+  - component: {fileID: 1749833083}
   m_Layer: 0
   m_Name: Cloud 3_0 (2)
   m_TagString: Untagged
@@ -30615,7 +30774,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1749833082
+--- !u!114 &1749833083
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30624,10 +30783,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749833079}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1749833081}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -30680,7 +30838,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &1749833084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749833079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1749833083}
 --- !u!1 &1780065801
 GameObject:
   m_ObjectHideFlags: 0
@@ -30691,7 +30862,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1780065803}
   - component: {fileID: 1780065802}
-  - component: {fileID: 1780065804}
+  - component: {fileID: 1780065806}
+  - component: {fileID: 1780065805}
   m_Layer: 0
   m_Name: Cloud 3_0 (4)
   m_TagString: Untagged
@@ -30769,7 +30941,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1780065804
+--- !u!114 &1780065805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30778,10 +30950,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1780065801}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1780065803}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -30834,7 +31005,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 1
-  _yOffset: 0.4
+  _heightOffset: 0.4
+--- !u!114 &1780065806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780065801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1780065805}
 --- !u!1 &1788793681
 GameObject:
   m_ObjectHideFlags: 0
@@ -30878,7 +31062,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1789390633}
   - component: {fileID: 1789390632}
-  - component: {fileID: 1789390634}
+  - component: {fileID: 1789390636}
+  - component: {fileID: 1789390635}
   m_Layer: 0
   m_Name: Cloud 3_0 (1)
   m_TagString: Untagged
@@ -30956,7 +31141,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1789390634
+--- !u!114 &1789390635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -30965,10 +31150,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1789390631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1789390633}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -31021,7 +31205,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &1789390636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789390631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1789390635}
 --- !u!1 &1850967998
 GameObject:
   m_ObjectHideFlags: 0
@@ -32164,7 +32361,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1983754604}
   - component: {fileID: 1983754603}
-  - component: {fileID: 1983754605}
+  - component: {fileID: 1983754607}
+  - component: {fileID: 1983754606}
   m_Layer: 0
   m_Name: Cloud 2_0 (1)
   m_TagString: Untagged
@@ -32242,7 +32440,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1971897275}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1983754605
+--- !u!114 &1983754606
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32251,10 +32449,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1983754602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7615b29f28c21da45bbeecc8a6d71102, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c8d09baeb7665a41bb02ad532730b1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spriteTr: {fileID: 1983754604}
   _curve:
     serializedVersion: 2
     m_Curve:
@@ -32307,7 +32504,20 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _duration: 0.75
-  _yOffset: 0.2
+  _heightOffset: 0.2
+--- !u!114 &1983754607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983754602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24af719a86634374a97a177775347141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _floatEffect: {fileID: 1983754606}
 --- !u!1001 &2003074969
 PrefabInstance:
   m_ObjectHideFlags: 0

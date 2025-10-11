@@ -9,6 +9,7 @@ public class SaveDataManager : MonoBehaviour
 
     private GameData _gameData;
     private List<ISaveable> _saveableGameObjects;
+    private bool _wasSaveFileKilled = false;
 
     [Header("File Storage Confing")]
     [SerializeField] private string _saveFileName = "SaveGame.Json";
@@ -27,21 +28,22 @@ public class SaveDataManager : MonoBehaviour
         }
         /* singleton pattern in unity, must be in awake */
     }
-
     private void Start()
     {
         _fileDataHandler = new(Application.persistentDataPath, _saveFileName); // set the file handler on the correct file address
         _saveableGameObjects = FindAllSaveableGameObjects(); // get all saveables
         LoadGame();
     }
-    private void OnApplicationQuit() => SaveGame(); // cause I only save when I exit the game I shortened the callback usage
+    private void OnApplicationQuit()
+    {
+        if (!_wasSaveFileKilled) SaveGame(); // make sure will not save if I deleted game file purposly
+    }
 
     public void NewGame() // creates a new save file
     {
         _gameData = new();
         Inventory.Instance.CreateNewInventory();
     }
-
     public void LoadGame() // get the data from the save file and import it while doing other neccessary operations.
     {
         _gameData = _fileDataHandler.Load(); // update the gameData script with the save file's content
@@ -61,7 +63,6 @@ public class SaveDataManager : MonoBehaviour
 
         Debugger.Log("Data Loaded\n" + _gameData.ToString());
     }
-
     public void SaveGame()
     {
         Inventory.Instance.SaveToData(ref _gameData); // save Inventory before everything saves
@@ -79,5 +80,12 @@ public class SaveDataManager : MonoBehaviour
     {
         IEnumerable<ISaveable> saveableGameObjects = FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None).OfType<ISaveable>();
         return new List<ISaveable>(saveableGameObjects);
+    }
+
+    [ContextMenu("Kill Save File")]
+    private void KillSaveFile()
+    {
+        _fileDataHandler.DeleteSaveFile();
+        _wasSaveFileKilled = true;
     }
 }

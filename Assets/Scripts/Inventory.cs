@@ -49,12 +49,12 @@ public class Inventory : MonoBehaviour
     public void AddCurrency(int amount)
     {
         _currency += amount;
-        _updateCurrencyEvent.Invoke(_currency);
+        _updateCurrencyEvent?.Invoke(_currency);
     }
     public void ReduceCurrency(int amount)
     {
         _currency -= amount;
-        _updateCurrencyEvent.Invoke(_currency);
+        _updateCurrencyEvent?.Invoke(_currency);
     }
     public void UnlockCharacter(int charID, int price) // handle characters unlocks
     {

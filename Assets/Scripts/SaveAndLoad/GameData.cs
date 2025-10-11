@@ -10,7 +10,7 @@ public class GameData
     public override string ToString()
     {
         string characterIds = string.Empty;
-        int unlockedCharLength = UnlockedCharacters.Length;
+        int unlockedCharLength = UnlockedCharacters != null ? UnlockedCharacters.Length : 0;
         for (int i = 0; i < unlockedCharLength; i++)
         {
             characterIds += i != unlockedCharLength -1 ? UnlockedCharacters[i] + ", " : UnlockedCharacters[i];
