@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7463993955584435010}
   m_Layer: 0
-  m_Name: Hirearchy Order
+  m_Name: Hierarchy Order
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
