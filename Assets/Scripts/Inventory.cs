@@ -25,11 +25,11 @@ public class Inventory : MonoBehaviour
     private int _currency;
     public int Currency => _currency;
 
-    private HashSet<int> _unlockedCharacters = new(1) { 0 };
-    public HashSet<int> UnlockedCharacters => _unlockedCharacters;
+    private HashSet<int> _onUnlockedCharactersEvent = new(1) { 0 };
+    public HashSet<int> OnUnlockedCharactersEvent => _onUnlockedCharactersEvent;
 
-    private Action<int> _updateCurrencyEvent;
-    public Action<int> UpdateCurrencyEvent { get => _updateCurrencyEvent; set => _updateCurrencyEvent = value; }
+    private Action<int> _onUpdateCurrencyEvent;
+    public Action<int> OnUpdateCurrencyEvent { get => _onUpdateCurrencyEvent; set => _onUpdateCurrencyEvent = value; }
 
     /*private Action<int[]> _unlockedCharacterAction;
     public Action<int[]> UnlockedCharacterEvent { get => _unlockedCharacterAction; set => _unlockedCharacterAction = value; }*/
@@ -49,29 +49,32 @@ public class Inventory : MonoBehaviour
     public void AddCurrency(int amount)
     {
         _currency += amount;
-        _updateCurrencyEvent?.Invoke(_currency);
+        _onUpdateCurrencyEvent?.Invoke(_currency);
+        Debugger.Log("Invoked _onUpdateCurrencyEvent, added " + amount + " to currency");
     }
     public void ReduceCurrency(int amount)
     {
         _currency -= amount;
-        _updateCurrencyEvent?.Invoke(_currency);
+        _onUpdateCurrencyEvent?.Invoke(_currency);
+        Debugger.Log("Invoked _onUpdateCurrencyEvent, reduced " + amount + " from currency");
     }
     public void UnlockCharacter(int charID, int price) // handle characters unlocks
     {
         // immidiatly save after unlocking character. add in hash set returns a success or failed bool
-        if (_unlockedCharacters.Add(charID))
+        if (_onUnlockedCharactersEvent.Add(charID))
         {
             ReduceCurrency(price);
             SaveDataManager.Instance.SaveGame();
+            Debugger.Log("Unlocked Character " + charID);
         }
         //_unlockedCharacterAction.Invoke(_unlockedCharacters.ToArray());
     }
-    public bool IsCharacterUnlocked(int charID) => _unlockedCharacters.Contains(charID); // checks if character is already unlocked.
+    public bool IsCharacterUnlocked(int charID) => _onUnlockedCharactersEvent.Contains(charID); // checks if character is already unlocked.
 
     public void CreateNewInventory() // reset inventory
     {
         _currency = 0;
-        _unlockedCharacters = new() { 0 };
+        _onUnlockedCharactersEvent = new() { 0 };
     }
     public void LoadFromData(GameData data)
     {
@@ -79,12 +82,12 @@ public class Inventory : MonoBehaviour
 
         // short if = if ? there are UnlockedCharacters in GameData, copy the array to a HashSet (list with no duplicates), else : create new UnlockedCharacters HashSet.
         // when creating new saveData always unlock first character
-        _unlockedCharacters = data.UnlockedCharacters != null ? new HashSet<int>(data.UnlockedCharacters) : new HashSet<int> { 0 };
+        _onUnlockedCharactersEvent = data.UnlockedCharacters != null ? new HashSet<int>(data.UnlockedCharacters) : new HashSet<int> { 0 };
     }
     public void SaveToData(ref GameData data)
     {
         data.Currency = _currency;
-        data.UnlockedCharacters = _unlockedCharacters.ToArray();
+        data.UnlockedCharacters = _onUnlockedCharactersEvent.ToArray();
     }
 
     [ContextMenu("GiveMeMoneyyy")]

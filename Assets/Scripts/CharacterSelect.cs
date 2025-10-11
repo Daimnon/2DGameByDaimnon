@@ -22,12 +22,13 @@ public class CharacterSelect : MonoBehaviour
 
     public void SelectCharacterAndStartGame()
     {
-        if (!Inventory.Instance.UnlockedCharacters.Contains(_id)) return;
+        if (!Inventory.Instance.OnUnlockedCharactersEvent.Contains(_id)) return;
 
         _playerController.SR.sprite = _characterSprite; // set player's desired sprite
         _scoreCanvasGO.SetActive(true); // turn on the score canvas
         _inventoryCanvasGO.SetActive(false); // turn off the inventory canvas
         _characterSelectionCanvasGo.SetActive(false); // turn off the selection canvas
         _gameManager.OnLevelStartEvent?.Invoke();
+        Debugger.Log("Invoked OnLevelStartEvent");
     }
 }

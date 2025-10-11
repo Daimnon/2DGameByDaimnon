@@ -4,7 +4,7 @@ using UnityEngine;
 public class FloatingObject : MonoBehaviour
 {
     private Coroutine _floatEffectRoutine;
-    private Action _floatEvent;
+    private Action _onFloatEvent;
 
     private Transform _spriteTr;
 
@@ -14,17 +14,17 @@ public class FloatingObject : MonoBehaviour
     private void Start()
     {
         _spriteTr = transform;
-        _floatEvent += ResetFloatCoroutine;
-        _floatEffectRoutine ??= StartCoroutine(_floatEffect.PlayFloatEffectRoutine(_spriteTr, _floatEvent));
+        _onFloatEvent += ResetFloatCoroutine;
+        _floatEffectRoutine ??= StartCoroutine(_floatEffect.PlayFloatEffectRoutine(_spriteTr, _onFloatEvent));
     }
     private void OnDestroy()
     {
-        _floatEvent -= ResetFloatCoroutine;
+        _onFloatEvent -= ResetFloatCoroutine;
     }
 
     private void ResetFloatCoroutine()
     {
         _floatEffectRoutine = null;
-        _floatEffectRoutine ??= StartCoroutine(_floatEffect.PlayFloatEffectRoutine(_spriteTr, _floatEvent));
+        _floatEffectRoutine ??= StartCoroutine(_floatEffect.PlayFloatEffectRoutine(_spriteTr, _onFloatEvent));
     }
 }

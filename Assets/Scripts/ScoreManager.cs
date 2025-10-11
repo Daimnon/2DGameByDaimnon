@@ -49,6 +49,7 @@ public class ScoreManager : MonoBehaviour
     {
         _totalFlipScore += currentFlipCount * _flipScore;
         _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
+        Debugger.Log("Invoked _onUpdateFlipScoreEvent");
     }
 
     private void SetLevelIndex(int levelIndex)
@@ -64,6 +65,7 @@ public class ScoreManager : MonoBehaviour
             totalTimeScore = -_overTimePenalty;
             _totalTimeScore = Mathf.RoundToInt(totalTimeScore);
             _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+            Debugger.Log("Invoked _onUpdateTimeScoreEvent " + _totalTimeScore + " on Overtime");
             return;
         }
 
@@ -77,6 +79,7 @@ public class ScoreManager : MonoBehaviour
 
         _totalTimeScore = Mathf.RoundToInt(totalTimeScore);
         _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+        Debugger.Log("Invoked _onUpdateTimeScoreEvent " + _totalTimeScore);
     }
 
     private void CalculateScore(bool hasFinishedSuccessfully)
@@ -90,9 +93,13 @@ public class ScoreManager : MonoBehaviour
         _totalScore = _totalFlipScore + _totalTimeScore + _totalLevelScore;
 
         _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
+        Debugger.Log("Invoked _onUpdateFlipScoreEvent " + _totalFlipScore + " when Finished Level");
         _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+        Debugger.Log("Invoked _onUpdateTimeScoreEvent " + _totalTimeScore + " when Finished Level");
         _onUpdateLevelScoreEvent?.Invoke(_totalLevelScore);
+        Debugger.Log("Invoked _onUpdateLevelScoreEvent " + _totalLevelScore + " when Finished Level");
         _onUpdateTotalScoreEvent?.Invoke(_totalScore);
+        Debugger.Log("Invoked _onUpdateTotalScoreEvent " + _totalScore + " when Finished Level");
     }
     private void CalculateScoreFailed()
     {
@@ -101,8 +108,12 @@ public class ScoreManager : MonoBehaviour
         _totalTimeScore = 0;
         _totalScore = 0;
         _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
+        Debugger.Log("Invoked _onUpdateFlipScoreEvent " + _totalFlipScore + " when Crashed");
         _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+        Debugger.Log("Invoked _onUpdateTimeScoreEvent " + _totalTimeScore + " when Crashed");
         _onUpdateLevelScoreEvent?.Invoke(_totalLevelScore);
+        Debugger.Log("Invoked _onUpdateLevelScoreEvent " + _totalLevelScore + " when Crashed");
         _onUpdateTotalScoreEvent?.Invoke(_totalScore);
+        Debugger.Log("Invoked _onUpdateTotalScoreEvent " + _totalScore + " when Crashed");
     }
 }

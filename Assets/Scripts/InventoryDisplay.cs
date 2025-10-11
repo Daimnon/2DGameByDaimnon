@@ -9,7 +9,7 @@ public class InventoryDisplay : MonoBehaviour
 
     private void Start()
     {
-        Inventory.Instance.UpdateCurrencyEvent += UpdateCurrency;
+        Inventory.Instance.OnUpdateCurrencyEvent += UpdateCurrency;
         UpdateCurrency(Inventory.Instance.Currency);
     }
     private void OnEnable()
@@ -18,7 +18,7 @@ public class InventoryDisplay : MonoBehaviour
     }
     private void OnDestroy()
     {
-        Inventory.Instance.UpdateCurrencyEvent -= UpdateCurrency;
+        Inventory.Instance.OnUpdateCurrencyEvent -= UpdateCurrency;
     }
 
     private void UpdateCurrency(int currentCurrency)
