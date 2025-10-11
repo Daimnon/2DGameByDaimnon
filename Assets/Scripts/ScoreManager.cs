@@ -11,18 +11,21 @@ public class ScoreManager : MonoBehaviour
     private int _totalLevelScore = 0;
     private int _totalScore = 0;
 
-    private Action<int> _updateFlipScoreEvent;
-    public Action<int> UpdateFlipScoreEvent { get => _updateFlipScoreEvent; set => _updateFlipScoreEvent = value; }
+    private Action<int> _onUpdateFlipScoreEvent;
+    public Action<int> OnUpdateFlipScoreEvent { get => _onUpdateFlipScoreEvent; set => _onUpdateFlipScoreEvent = value; }
 
-    private Action<int> _updateTimeScoreEvent;
-    public Action<int> UpdateTimeScoreEvent { get => _updateTimeScoreEvent; set => _updateTimeScoreEvent = value; }
+    private Action<int> _onUpdateTimeScoreEvent;
+    public Action<int> OnUpdateTimeScoreEvent { get => _onUpdateTimeScoreEvent; set => _onUpdateTimeScoreEvent = value; }
 
-    private Action<int> _updateLevelScoreEvent;
-    public Action<int> UpdateLevelScoreEvent { get => _updateLevelScoreEvent; set => _updateLevelScoreEvent = value; }
+    private Action<int> _onUpdateLevelScoreEvent;
+    public Action<int> OnUpdateLevelScoreEvent { get => _onUpdateLevelScoreEvent; set => _onUpdateLevelScoreEvent = value; }
+
+    private Action<int> _onUpdateTotalScoreEvent;
+    public Action<int> OnUpdateTotalScoreEvent { get => _onUpdateTotalScoreEvent; set => _onUpdateTotalScoreEvent = value; }
 
     [Header("Data")]
-    [SerializeField] private int _flipScore = 100;
-    [SerializeField] private int _maxTimeScore = 100;
+    [SerializeField] private int _flipScore = 25;
+    [SerializeField] private int _maxTimeScore = 75;
     [SerializeField] private int _levelScore = 100;
     [SerializeField] private int _overTimePenalty = 50;
 
@@ -31,18 +34,21 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        _gameManager.UpdateScoreEvent += OnLevelTimeCalculated;
-        _gameManager.CheckLevelIndexEvent += SetLevelIndex;
+        _gameManager.OnUpdateScoreEvent += OnLevelTimeCalculated;
+        _gameManager.OnCheckLevelIndexEvent += SetLevelIndex;
+        _gameManager.OnLevelEndEvent += CalculateScore;
     }
     private void OnDestroy()
     {
-        _gameManager.UpdateScoreEvent -= OnLevelTimeCalculated;
-        _gameManager.CheckLevelIndexEvent -= SetLevelIndex;
+        _gameManager.OnUpdateScoreEvent -= OnLevelTimeCalculated;
+        _gameManager.OnCheckLevelIndexEvent -= SetLevelIndex;
+        _gameManager.OnLevelEndEvent -= CalculateScore;
     }
+
     public void AddFlipScore(int currentFlipCount)
     {
         _totalFlipScore += currentFlipCount * _flipScore;
-        _updateFlipScoreEvent?.Invoke(_totalFlipScore);
+        _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
     }
 
     private void SetLevelIndex(int levelIndex)
@@ -57,7 +63,7 @@ public class ScoreManager : MonoBehaviour
         {
             totalTimeScore = -_overTimePenalty;
             _totalTimeScore = Mathf.RoundToInt(totalTimeScore);
-            _updateTimeScoreEvent?.Invoke(_totalTimeScore);
+            _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
             return;
         }
 
@@ -66,10 +72,37 @@ public class ScoreManager : MonoBehaviour
         if (timeLeft < halfTime)
         {
             float fraction = Mathf.Clamp01(timeLeft / halfTime); // ensures 0 ≤ fraction ≤ 1
-            totalTimeScore *= fraction; // linear drop
+            totalTimeScore *= fraction; // linear score drop
         }
 
         _totalTimeScore = Mathf.RoundToInt(totalTimeScore);
-        _updateTimeScoreEvent?.Invoke(_totalTimeScore);
+        _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+    }
+
+    private void CalculateScore(bool hasFinishedSuccessfully)
+    {
+        if (hasFinishedSuccessfully) CalculateScoreFinished();
+        else CalculateScoreFailed();
+    }
+    private void CalculateScoreFinished()
+    {
+        _totalLevelScore = _levelScore * _levelIndex;
+        _totalScore = _totalFlipScore + _totalTimeScore + _totalLevelScore;
+
+        _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
+        _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+        _onUpdateLevelScoreEvent?.Invoke(_totalLevelScore);
+        _onUpdateTotalScoreEvent?.Invoke(_totalScore);
+    }
+    private void CalculateScoreFailed()
+    {
+        _totalFlipScore = 0;
+        _totalLevelScore = 0;
+        _totalTimeScore = 0;
+        _totalScore = 0;
+        _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
+        _onUpdateTimeScoreEvent?.Invoke(_totalTimeScore);
+        _onUpdateLevelScoreEvent?.Invoke(_totalLevelScore);
+        _onUpdateTotalScoreEvent?.Invoke(_totalScore);
     }
 }

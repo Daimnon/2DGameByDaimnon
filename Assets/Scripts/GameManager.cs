@@ -1,20 +1,28 @@
 using System;
 using System.Collections;
 using UnityEngine;
+//using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private const float TIME_STOPPED = 0.0f;
-    private float _finishLevelTimer = 0;
+    private const float TIME_REGULAR = 1.0f;
+
     private bool _finishedLevel = false;
 
     private Coroutine _levelTimerRoutine = null;
 
-    private Action<int, float> _updateTimeScoreEvent; // by order int = _maxLevelTime[_levelIndex], float = time left to finish level
-    public Action<int, float> UpdateScoreEvent { get => _updateTimeScoreEvent; set => _updateTimeScoreEvent = value; }
+    private Action<int, float> _onUpdateTimeScoreEvent; // by order int = _maxLevelTime[_levelIndex], float = time left to finish level
+    public Action<int, float> OnUpdateScoreEvent { get => _onUpdateTimeScoreEvent; set => _onUpdateTimeScoreEvent = value; }
 
-    private Action<int> _checkLevelIndexEvent; // int = _levelIndex.
-    public Action<int> CheckLevelIndexEvent { get => _checkLevelIndexEvent; set => _checkLevelIndexEvent = value; }
+    private Action<int> _onCheckLevelIndexEvent; // int = _levelIndex.
+    public Action<int> OnCheckLevelIndexEvent { get => _onCheckLevelIndexEvent; set => _onCheckLevelIndexEvent = value; }
+
+    private Action _onLevelStartEvent;
+    public Action OnLevelStartEvent { get => _onLevelStartEvent; set => _onLevelStartEvent = value; }
+
+    private Action<bool> _onLevelEndEvent; // bool is if finished (true) or ended from another reason (false)
+    public Action<bool> OnLevelEndEvent { get => _onLevelEndEvent; set => _onLevelEndEvent = value; }
 
     [Header("Data")]
     [SerializeField] private int _levelIndex;
@@ -22,17 +30,30 @@ public class GameManager : MonoBehaviour
 
     [Header("Systems")]
     [SerializeField] private CrashDetector _crashDetector;
-    [SerializeField] private CharacterSelect _characterSelection;
+    [SerializeField] private FinishLine _finishLine;
 
     private void Start()
     {
-        Time.timeScale = TIME_STOPPED;
-        _checkLevelIndexEvent?.Invoke(_levelIndex);
+        Time.timeScale = TIME_STOPPED; // pause
+    }
+    private void OnDestroy()
+    {
+        _finishLine.OnLevelFinished -= OnFinishedGame;
     }
 
     public void StartTimer(float duration)
     {
         _levelTimerRoutine ??= StartCoroutine(LevelTimerRoutine(duration));
+    }
+    public void OnLevelStart()
+    {
+        _onCheckLevelIndexEvent?.Invoke(_levelIndex);
+        _finishLine.OnLevelFinished += OnFinishedGame;
+        Time.timeScale = TIME_REGULAR; // unpause
+    }
+    public void SetLevelFinished(bool isTrue)
+    {
+        _finishedLevel = isTrue;
     }
     private IEnumerator LevelTimerRoutine(float maxDuration)
     {
@@ -48,14 +69,20 @@ public class GameManager : MonoBehaviour
             if (_crashDetector.HasCrashed)
             {
                 timeLeft = 0.0f;
-                _updateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                yield return null;
+
+                _onLevelEndEvent?.Invoke(false);
                 _levelTimerRoutine = null;
                 yield break;
             }
 
             if (_finishedLevel)
             {
-                _updateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft);
+                yield return null;
+
+                _onLevelEndEvent?.Invoke(true);
                 _levelTimerRoutine = null;
                 yield break;
             }
@@ -63,7 +90,16 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        _updateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft); // if we reached here it's penalty time.
+        _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex], timeLeft); // if we reached here it's penalty time.
         _levelTimerRoutine = null;
+    }
+
+    private void OnFinishedGame()
+    {
+        _finishedLevel = true;
+
+        /*int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int maxSceneCount = SceneManager.sceneCountInBuildSettings;
+        if (currentSceneIndex < maxSceneCount) SceneManager.LoadScene(currentSceneIndex + 1); // reloads the first level*/
     }
 }

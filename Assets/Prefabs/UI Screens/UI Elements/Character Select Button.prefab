@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 785912998460724384}
   - component: {fileID: 5094241586230479877}
   m_Layer: 5
-  m_Name: Character Button
+  m_Name: Character Select Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

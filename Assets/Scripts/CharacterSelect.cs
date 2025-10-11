@@ -5,18 +5,20 @@ public class CharacterSelect : MonoBehaviour
 {
     private const float TIME_REGULAR = 1.0f; // for unpausing the game.
 
-    private Action _levelStarted;
-    public Action LevelStarted { get => _levelStarted; set => _levelStarted = value; }
-
-    [Header("Components")]
-    [SerializeField] private GameObject _scoreCanvasGO;
-    [SerializeField] private GameObject _inventoryCanvasGO;
+    [Header("Systems")]
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] private PlayerSlideController _playerController;
-    [SerializeField] private GameObject _characterSelectionCanvasGo;
 
     [Header("Data")]
     [SerializeField] private int _id;
     [SerializeField] private Sprite _characterSprite;
+
+    [Header("Components")]
+    [SerializeField] private GameObject _scoreCanvasGO;
+    [SerializeField] private GameObject _inventoryCanvasGO;
+    [SerializeField] private GameObject _characterSelectionCanvasGo;
+
+    
 
     public void SelectCharacterAndStartGame()
     {
@@ -26,7 +28,6 @@ public class CharacterSelect : MonoBehaviour
         _scoreCanvasGO.SetActive(true); // turn on the score canvas
         _inventoryCanvasGO.SetActive(false); // turn off the inventory canvas
         _characterSelectionCanvasGo.SetActive(false); // turn off the selection canvas
-        Time.timeScale = TIME_REGULAR; // unpause
-        _levelStarted?.Invoke();
+        _gameManager.OnLevelStartEvent?.Invoke();
     }
 }

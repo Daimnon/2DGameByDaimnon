@@ -1,3 +1,4 @@
+using System;
 using System.Collections; // for IEnumerator
 using UnityEngine;
 using UnityEngine.SceneManagement; // for SceneManager
@@ -6,7 +7,13 @@ public class FinishLine : MonoBehaviour
 {
     private const string PLAYER_TAG = "Player"; // the tag of the player, const == cannot and should not be changed
 
-    [SerializeField] private float _timeToWaitForLevelToReset = 4.0f;
+    private Action _onLevelFinished;
+    public Action OnLevelFinished { get => _onLevelFinished; set => _onLevelFinished = value; }
+
+    [Header("Data")]
+    [SerializeField] private float _victoryDelay = 2.0f;
+    
+    [Header("Components")]
     [SerializeField] private ParticleSystem _victoryParticles;
 
     private void OnTriggerEnter2D(Collider2D collision) // trigger detection on this gameObjcet's collider
@@ -20,10 +27,7 @@ public class FinishLine : MonoBehaviour
     private IEnumerator WaitForResetAfterWin() // a standalone coroutined sequence that we can use a synchronicly, timing action within the game's constraints
     {
         _victoryParticles.Play();
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        int maxSceneCount = SceneManager.sceneCountInBuildSettings;
-        yield return new WaitForSeconds(_timeToWaitForLevelToReset); // WaitForSeconds is one of many scripts that wait for stuff
-        if (currentSceneIndex < maxSceneCount) SceneManager.LoadScene(currentSceneIndex+1); // reloads the first level
-        // else go to level selection
+        yield return new WaitForSeconds(_victoryDelay); // WaitForSeconds is one of many scripts that wait for stuff
+        _onLevelFinished?.Invoke();
     }
 }

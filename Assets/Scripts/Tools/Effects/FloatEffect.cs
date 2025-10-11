@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class FloatingEffect : BaseEffect
+public class FloatEffect : BaseEffect
 {
     [SerializeField] private float _heightOffset = 0.2f;
     public IEnumerator PlayFloatEffectRoutine(Transform spriteTr, Action clearRoutine)
