@@ -115,7 +115,7 @@ public class PlayerSlideController : MonoBehaviour
         if (_totalRot > _fullRot - _flipOffset || _totalRot < -_fullRot + _flipOffset)
         {
             _flipCount++;
-            _scoreManager.AddScore(_flipCount);
+            _scoreManager.AddFlipScore(_flipCount);
             _totalRot = 0.0f;
         }
         _prevRot = currentRot;

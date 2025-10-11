@@ -1,8 +1,12 @@
+using System;
 using UnityEngine;
 
 public class CharacterSelect : MonoBehaviour
 {
     private const float TIME_REGULAR = 1.0f; // for unpausing the game.
+
+    private Action _levelStarted;
+    public Action LevelStarted { get => _levelStarted; set => _levelStarted = value; }
 
     [Header("Components")]
     [SerializeField] private GameObject _scoreCanvasGO;
@@ -23,5 +27,6 @@ public class CharacterSelect : MonoBehaviour
         _inventoryCanvasGO.SetActive(false); // turn off the inventory canvas
         _characterSelectionCanvasGo.SetActive(false); // turn off the selection canvas
         Time.timeScale = TIME_REGULAR; // unpause
+        _levelStarted?.Invoke();
     }
 }

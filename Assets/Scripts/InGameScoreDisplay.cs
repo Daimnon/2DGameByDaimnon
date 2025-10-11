@@ -21,7 +21,7 @@ public class InGameScoreDisplay : MonoBehaviour
     private void Start()
     {
         _flipsIconBounceEvent += ClearFlipBounceCoroutine;
-        _scoreManager.UpdateScoreEvent += UpdateScore;
+        _scoreManager.UpdateFlipScoreEvent += UpdateScore;
     }
     private void OnDestroy()
     {
