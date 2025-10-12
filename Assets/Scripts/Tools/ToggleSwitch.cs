@@ -24,6 +24,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
 
     [Header("Components")]
     [SerializeField] private Slider _slider;
+    [SerializeField] private Image _handle;
 
     [Header("Unity Events")]
     [SerializeField] private UnityEvent _onToggleTrue;
@@ -84,6 +85,9 @@ public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
         float startValue = _slider.value;
         float endValue = CurrentValue ? 1 : 0;
 
+        Color startColor = _handle.color; // current handle color
+        Color endColor = CurrentValue ? _onColor : _offColor; // target colors
+
         float time = 0;
         if (_duration > 0)
         {
@@ -93,6 +97,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
 
                 float lerpFactor = _curve.Evaluate(time / _duration);
                 _slider.value = _sliderValue = Mathf.Lerp(startValue, endValue, lerpFactor);
+                _handle.color = Color.Lerp(startColor, endColor, lerpFactor);
 
                 _transitionEffect?.Invoke();
 
@@ -101,6 +106,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
         }
 
         _slider.value = endValue;
+        _handle.color = endColor;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
