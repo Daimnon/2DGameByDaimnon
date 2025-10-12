@@ -15,7 +15,7 @@ public class InGameScoreDisplay : MonoBehaviour
     [SerializeField] private Image _flipsIcon;
     [SerializeField] private TextMeshProUGUI _flipsCounter;
 
-    [Header("Effects")]
+    [Header("Animations")]
     [SerializeField] private UIBounceEffect _bounceEffect;
 
     private void Start()

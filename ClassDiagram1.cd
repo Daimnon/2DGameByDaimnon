@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PowerupSO" Collapsed="true">
+    <Position X="7" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAACAAAAABAAAAAAAAAAAAAAAIAgAAAABAA=</HashCode>
+      <FileName>Assets\ScriptableObjects\PowerupSO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CharacterSelect" Collapsed="true">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAIAAAACEBAAAAEBABAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CharacterSelect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CrashDetector" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAACACAAhAAAAAAEAAAAIAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\CrashDetector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EndGameScoreDisplay" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAA1EKAACGkAAAAYEgAQAAAIkLAAAAAAUAAEoAAMhAA=</HashCode>
+      <FileName>Assets\Scripts\EndGameScoreDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FinishLine" Collapsed="true">
+    <Position X="8.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAgAAEAAAAAAAAIEAAAAAEAAAQAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\FinishLine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FloatingObject" Collapsed="true">
+    <Position X="10.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAABAAAAACAAAACAAAAACAAAAAEAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\FloatingObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="5.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAKBgAAEDCBAAAKAAAAAIEAoAAAAIABAAIAQAgAgCAA=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InGameScoreDisplay" Collapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAhCAAAACAAAAEQAAAAAAAAABAAABAAABAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\InGameScoreDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAQABAAAAAQAADAAAABDCAACACAAwAgQAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InventoryDisplay" Collapsed="true">
+    <Position X="10.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAACAAAAAAAAgAAAAAAAAAAAAAAIAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\InventoryDisplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerSlideController" Collapsed="true">
+    <Position X="12.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQhQgGAAqgCAAQICQAhEEEQmAEAAAAEAAAUIAAAklA=</HashCode>
+      <FileName>Assets\Scripts\PlayerSlideController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Powerup" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAQAAAEEAAIAAAAAQAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Powerup.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileDataHandler" Collapsed="true">
+    <Position X="7" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEgIAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveAndLoad\FileDataHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameData" Collapsed="true">
+    <Position X="12.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAEAAAEAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveAndLoad\GameData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SaveDataManager" Collapsed="true">
+    <Position X="8.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEABBAADAQAAAAAAgAAAAIBAAAACAAQAAACAAAAEE=</HashCode>
+      <FileName>Assets\Scripts\SaveAndLoad\SaveDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScoreManager" Collapsed="true">
+    <Position X="10.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABQAAACiAAIIAJAAQAgAARAIBAAQDAgIQAKAAAAII=</HashCode>
+      <FileName>Assets\Scripts\ScoreManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="12.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Singleton.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColorCoding" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Tools\ColorCoding.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Debugger" Collapsed="true">
+    <Position X="12.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAQIAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tools\Debugger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseEffect" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Tools\Effects\BaseEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FloatEffect" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tools\Effects\FloatEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIBounceEffect" Collapsed="true">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAiAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tools\Effects\UIBounceEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trail" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAQAAAQAAAAAAAABEAAAAAAAAAgAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Trail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UnlockableCharacter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAIAAAAAQARQIABAiBAIABQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\UnlockableCharacter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="@SlidingPlayer_Actions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAAAACAAABAiAAKECRAJYAIXBGAUAGEgIFhQAMA=</HashCode>
+      <FileName>Assets\SlidingPlayer_Actions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="ISaveable" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\SaveAndLoad\ISaveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="PowerupType" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\ScriptableObjects\PowerupSO.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="CharacterID" Collapsed="true">
+    <Position X="5.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAABAAoAAAAAABAAAAAAAAAAAAAAAADAAAAE=</HashCode>
+      <FileName>Assets\Scripts\Inventory.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="DebugType" Collapsed="true">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgQAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Tools\Debugger.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

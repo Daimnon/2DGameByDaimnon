@@ -8,7 +8,7 @@ public class FloatingObject : MonoBehaviour
 
     private Transform _spriteTr;
 
-    [Header("Effects")]
+    [Header("Animations")]
     [SerializeField] private FloatEffect _floatEffect;
 
     private void Start()

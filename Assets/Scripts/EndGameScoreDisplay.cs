@@ -42,7 +42,7 @@ public class EndGameScoreDisplay : MonoBehaviour
 
     [SerializeField] private GameObject _nextBtnBg;
 
-    /*[Header("Effects")]
+    /*[Header("Animations")]
     [SerializeField] private UIBounceEffect _bounceEffect;*/ // should be smale dance effect and not bounce.
 
     private void Start()
