@@ -69,11 +69,11 @@ public class AudioManager : MonoBehaviour
     }
 
     #region Unity Events
-    public void ToffleMusicVolume(bool isOn)
+    public void ToggleMusicVolume(bool isOn)
     {
         _musicSource.volume = isOn ? _musicVolume : 0f;
     }
-    public void ToffleSoundsVolume(bool isOn)
+    public void ToggleSoundsVolume(bool isOn)
     {
         _soundsSource1.volume = isOn ? _soundsVolume : 0f;
         _soundsSource2.volume = isOn ? _soundsVolume : 0f;
