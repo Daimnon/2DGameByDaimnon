@@ -1,18 +1,19 @@
 using System;
 using System.Collections; // for IEnumerator
 using UnityEngine;
-using UnityEngine.SceneManagement; // for SceneManager
 
 public class CrashDetector : MonoBehaviour
 {
-    private bool _hasCrashed = false;
-    public bool HasCrashed => _hasCrashed;
+    private bool _hasCrashed = false; public bool HasCrashed => _hasCrashed;
 
     private Action _onCrash;
     public Action OnCrash { get => _onCrash; set => _onCrash = value; }
 
+    [Header("Settings")]
     [SerializeField] private string _groundTag = "LevelCollider"; // the tag of the player
     [SerializeField] private float _afterCrashDelay = 2.0f;
+
+    [Header("Animations")]
     [SerializeField] private ParticleSystem _crashParticles;
 
     private void OnTriggerEnter2D(Collider2D collision) // trigger detection on this gameObjcet's collider

@@ -9,11 +9,7 @@ public class PlayerSlideController : MonoBehaviour
     
     private Vector2 _moveInputValue = new Vector2(); // we will use this to cash the inputs value.
 
-    private float _fullRot = 360.0f;
-    private float _flipOffset = 45.0f;
-    private float _prevRot = 0.0f;
-    private float _totalRot = 0.0f;
-    private int _flipCount = 0;
+    
 
     private bool _isCalculatingFlips = true;
 
@@ -21,24 +17,28 @@ public class PlayerSlideController : MonoBehaviour
     [SerializeField] private ScoreManager _scoreManager;
     [SerializeField] private CrashDetector _crashDetector;
 
-    [Header("Components")]
-    [SerializeField] private Rigidbody2D _rb2D;
-    [SerializeField] private AudioSource _audioSource;
-    //[SerializeField] private ParticleSystem _powerupActivatedParticles;
-    [SerializeField] private ParticleSystem _powerupActiveParticles;
-    [SerializeField] private ParticleSystem _powerupDeactivatedParticles;
-
-    [SerializeField] private SpriteRenderer _sR;
-    public SpriteRenderer SR => _sR;
-    
-    [SerializeField] private SurfaceEffector2D _sE2D;
-    public SurfaceEffector2D SE2D => _sE2D;
-
     [Header("Data")]
     [SerializeField] private float _moveSpeed = 10.0f; // _sE2D base speed.
     [SerializeField] private float _accelerateSpeed = 15.0f; // _sE2D accelerated speed.
     [SerializeField] private float _deccelerateSpeed = 5.0f; // _sE2D deccelerated speed.
     [SerializeField] private float _torqueAmount = 10.0f; // rotation force.
+    private float _fullRot = 360.0f;
+    private float _flipOffset = 45.0f;
+    private float _prevRot = 0.0f;
+    private float _totalRot = 0.0f;
+    private int _flipCount = 0;
+
+
+    [Header("Components")]
+    [SerializeField] private Rigidbody2D _rb2D;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private SpriteRenderer _sR; public SpriteRenderer SR => _sR;
+    [SerializeField] private SurfaceEffector2D _sE2D; public SurfaceEffector2D SE2D => _sE2D;
+
+    [Header("Animations")]
+    //[SerializeField] private ParticleSystem _powerupActivatedParticles;
+    [SerializeField] private ParticleSystem _powerupActiveParticles;
+    [SerializeField] private ParticleSystem _powerupDeactivatedParticles;
 
     private void Awake()
     {

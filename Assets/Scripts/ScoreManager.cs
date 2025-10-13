@@ -4,13 +4,6 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-    private int _levelIndex = 1; // set from GameManager at start
-
-    private int _totalFlipScore = 0;
-    private int _totalTimeScore = 0;
-    private int _totalLevelScore = 0;
-    private int _totalScore = 0;
-
     private Action<int> _onUpdateFlipScoreEvent;
     public Action<int> OnUpdateFlipScoreEvent { get => _onUpdateFlipScoreEvent; set => _onUpdateFlipScoreEvent = value; }
 
@@ -23,14 +16,21 @@ public class ScoreManager : MonoBehaviour
     private Action<int> _onUpdateTotalScoreEvent;
     public Action<int> OnUpdateTotalScoreEvent { get => _onUpdateTotalScoreEvent; set => _onUpdateTotalScoreEvent = value; }
 
-    [Header("Data")]
+    [Header("Systems")]
+
+    [SerializeField] private GameManager _gameManager;
+
+    [Header("Settings")]
     [SerializeField] private int _flipScore = 25;
     [SerializeField] private int _maxTimeScore = 75;
     [SerializeField] private int _levelScore = 100;
     [SerializeField] private int _overTimePenalty = 50;
-
-    [Header("Systems")]
-    [SerializeField] private GameManager _gameManager;
+    private int _levelIndex = 1; // set from GameManager at start
+    private int _totalFlipScore = 0;
+    private int _totalTimeScore = 0;
+    private int _totalLevelScore = 0;
+    private int _totalScore = 0;
+    
 
     private void Start()
     {

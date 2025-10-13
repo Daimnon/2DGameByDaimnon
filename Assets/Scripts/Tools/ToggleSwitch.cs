@@ -7,24 +7,21 @@ using UnityEngine.UI;
 
 public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
 {
-    private bool _currentValue;
-    public bool CurrentValue => _currentValue;
-
-    private bool _previousValue;
-    private Coroutine _sliderAnimationRoutine;
-    private Action _transitionEffect;
-    private ToggleSwitchGroupManager _toggleSwitchGroupManager;
-
-    [Header("Data")]
+    [Header("Behaviour")]
+    [SerializeField] private Slider _slider;
     [SerializeField, Range(0.0f, 1.0f)] private float _sliderValue;
+    private bool _previousValue;
+    private ToggleSwitchGroupManager _toggleSwitchGroupManager;
+    private bool _currentValue; public bool CurrentValue => _currentValue;
+
+    [Header("Animations")]
     [SerializeField, Range(0.0f, 1.0f)] private float _duration = 0.5f;
+    [SerializeField] private Image _handle;
     [SerializeField] private AnimationCurve _curve = AnimationCurve.EaseInOut(0.0f, 0.0f, 1.0f, 1.0f);
     [SerializeField] private Color _onColor = new(0.4f, 1f, 0.4f, 1f);   // Greenish
     [SerializeField] private Color _offColor = new(0.6f, 0.6f, 0.6f, 1f); // Grayish
-
-    [Header("Components")]
-    [SerializeField] private Slider _slider;
-    [SerializeField] private Image _handle;
+    private Coroutine _sliderAnimationRoutine;
+    private Action _transitionEffect;
 
     [Header("Unity Events")]
     [SerializeField] private UnityEvent _onToggleTrue;
@@ -95,7 +92,7 @@ public class ToggleSwitch : MonoBehaviour, IPointerClickHandler
         {
             while (time < _duration)
             {
-                time += Time.unscaledDeltaTime;
+                time += Time.unscaledDeltaTime; // unscaled so it works even if time is paused
 
                 float lerpFactor = _curve.Evaluate(time / _duration);
                 _slider.value = _sliderValue = Mathf.Lerp(startValue, endValue, lerpFactor);

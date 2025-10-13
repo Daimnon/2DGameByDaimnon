@@ -22,8 +22,7 @@ public class Inventory : MonoBehaviour
     public static Inventory _instance = null;
     public static Inventory Instance => _instance;
 
-    private int _currency;
-    public int Currency => _currency;
+    private int _currency; public int Currency => _currency;
 
     private HashSet<int> _onUnlockedCharactersEvent = new(1) { 0 };
     public HashSet<int> OnUnlockedCharactersEvent => _onUnlockedCharactersEvent;

@@ -13,10 +13,10 @@ public class FinishLine : MonoBehaviour
     [Header("Systems")]
     [SerializeField] private PlayerSlideController _playerController; // find a way to remove and still DisableInputs
 
-    [Header("Data")]
+    [Header("Settings")]
     [SerializeField] private float _victoryDelay = 2.0f;
-    
-    [Header("Components")]
+
+    [Header("Animations")]
     [SerializeField] private ParticleSystem _victoryParticles;
 
     private void OnTriggerEnter2D(Collider2D collision) // trigger detection on this gameObjcet's collider

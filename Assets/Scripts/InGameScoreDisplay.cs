@@ -11,7 +11,7 @@ public class InGameScoreDisplay : MonoBehaviour
     [Header("Systems")]
     [SerializeField] private ScoreManager _scoreManager;
 
-    [Header("Components")]
+    [Header("Flips")]
     [SerializeField] private Image _flipsIcon;
     [SerializeField] private TextMeshProUGUI _flipsCounter;
 

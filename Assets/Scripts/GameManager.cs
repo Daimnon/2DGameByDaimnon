@@ -13,8 +13,6 @@ public class GameManager : MonoBehaviour
     private const float TIME_STOPPED = 0.0f;
     private const float TIME_REGULAR = 1.0f;
 
-    private bool _finishedLevel = false;
-
     private Coroutine _levelTimerRoutine = null;
 
     private Action<int, float> _onUpdateTimeScoreEvent; // by order int = _maxLevelTime[_levelIndex], float = time left to finish level
@@ -29,13 +27,14 @@ public class GameManager : MonoBehaviour
     private Action<bool> _onLevelEndEvent; // bool is if finished (true) or ended from another reason (false)
     public Action<bool> OnLevelEndEvent { get => _onLevelEndEvent; set => _onLevelEndEvent = value; }
 
-    [Header("Data")]
-    [SerializeField] private int _levelIndex;
-    [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
-
     [Header("Systems")]
     [SerializeField] private CrashDetector _crashDetector;
     [SerializeField] private FinishLine _finishLine;
+
+    [Header("Settings")]
+    [SerializeField] private int _levelIndex;
+    [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
+    private bool _finishedLevel = false;
 
     private void Start()
     {

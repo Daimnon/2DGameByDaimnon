@@ -6,16 +6,14 @@ using UnityEngine.UI;
 
 public class ToggleSwitchGroupManager : MonoBehaviour
 {
-    private List<ToggleSwitch> _toggleSwitches = new List<ToggleSwitch>();
-    
-    [Header("Data")]
+    [Header("Settings")]
+    [SerializeField] private List<ToggleSwitch> _toggleSwitches = new List<ToggleSwitch>();
     [SerializeField] private ToggleSwitch initialToggleSwitch;
     [SerializeField] private bool allCanBeToggledOff;
 
     private void Awake()
     {
-        ToggleSwitch[] toggleSwitches = GetComponentsInChildren<ToggleSwitch>();
-        foreach (ToggleSwitch toggleSwitch in toggleSwitches)
+        foreach (ToggleSwitch toggleSwitch in _toggleSwitches)
         {
             RegisterToggleButtonToGroup(toggleSwitch);
         }
@@ -23,9 +21,6 @@ public class ToggleSwitchGroupManager : MonoBehaviour
 
     private void RegisterToggleButtonToGroup(ToggleSwitch toggleSwitch)
     {
-        if (_toggleSwitches.Contains(toggleSwitch)) return;
-
-        _toggleSwitches.Add(toggleSwitch);
         toggleSwitch.SetupForManager(this);
     }
 

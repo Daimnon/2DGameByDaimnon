@@ -13,23 +13,22 @@ public class EndGameScoreDisplay : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private ScoreManager _scoreManager;
 
-    [Header("Data")]
-    [SerializeField] private int _timeToShowNextBtn = 1;
-    [SerializeField] private string _crashedTitle = "Crashed";
-
-    [Header("Components")]
+    [Header("Title")]
     [SerializeField] private TextMeshProUGUI _endPanelTitle;
 
+    [Header("Flips Score")]
     [SerializeField] private Image _flipsIconBg;
     [SerializeField] private Image _flipsIcon;
     [SerializeField] private Sprite _flipsCrashedIcon;
     [SerializeField] private TextMeshProUGUI _flipsScore;
 
+    [Header("Time Score")]
     [SerializeField] private Image _timeIconBg;
     [SerializeField] private Image _timeIcon;
     [SerializeField] private Sprite _timeCrashedIcon;
     [SerializeField] private TextMeshProUGUI _timeScore;
 
+    [Header("Level Score")]
     [SerializeField] private Image _levelIconBg;
     [SerializeField] private Image _levelIcon;
     [SerializeField] private Sprite _levelCrashedIcon;
@@ -40,7 +39,12 @@ public class EndGameScoreDisplay : MonoBehaviour
     [SerializeField] private Sprite _totalScoreCrashedIcon;
     [SerializeField] private TextMeshProUGUI _totalScore;
 
+    [Header("Close Button")]
     [SerializeField] private GameObject _nextBtnBg;
+
+    [Header("Settings")]
+    [SerializeField] private int _timeToShowNextBtn = 1;
+    [SerializeField] private string _crashedTitle = "Crashed";
 
     /*[Header("Animations")]
     [SerializeField] private UIBounceEffect _bounceEffect;*/ // should be smale dance effect and not bounce.
