@@ -28,12 +28,14 @@ public class GameManager : MonoBehaviour
     public Action<bool> OnLevelEndEvent { get => _onLevelEndEvent; set => _onLevelEndEvent = value; }
 
     [Header("Systems")]
+    [SerializeField] private AudioManager _audioManager; public AudioManager AudioManager => _audioManager;
     [SerializeField] private CrashDetector _crashDetector;
     [SerializeField] private FinishLine _finishLine;
 
     [Header("Settings")]
     [SerializeField] private int _levelIndex;
     [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
+    [SerializeField] private AudioClip[] _musicPerLevel; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
     private bool _finishedLevel = false;
 
     private void Start()
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = TIME_REGULAR; // unpause
 
         StartTimer(_maxLevelTime[_levelIndex -1]);
+        _audioManager.PlayMusic(_musicPerLevel[_levelIndex - 1]);
     }
     public void SetLevelFinished(bool isTrue)
     {

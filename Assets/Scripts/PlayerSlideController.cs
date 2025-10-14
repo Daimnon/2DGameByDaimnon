@@ -8,15 +8,16 @@ public class PlayerSlideController : MonoBehaviour
     private InputAction _moveAction; // action reference.
     
     private Vector2 _moveInputValue = new Vector2(); // we will use this to cash the inputs value.
-
-    
-
     private bool _isCalculatingFlips = true;
 
     [Header("Systems")]
     [SerializeField] private ScoreManager _scoreManager;
+    [SerializeField] private AudioManager _audioManager;
     [SerializeField] private CrashDetector _crashDetector;
 
+    [Header("Settings")]
+    [SerializeField] private string _groundTag = "LevelCollider"; // the tag of the player
+    
     [Header("Data")]
     [SerializeField] private float _moveSpeed = 10.0f; // _sE2D base speed.
     [SerializeField] private float _accelerateSpeed = 15.0f; // _sE2D accelerated speed.
@@ -29,7 +30,6 @@ public class PlayerSlideController : MonoBehaviour
     private int _flipCount = 0;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip _crashSFX;
     [SerializeField] private AudioClip _slideSFX;
     [SerializeField] private AudioClip _landSFX;
     [SerializeField] private AudioClip _airUp;
@@ -37,7 +37,6 @@ public class PlayerSlideController : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D _rb2D;
-    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private SpriteRenderer _sR; public SpriteRenderer SR => _sR;
     [SerializeField] private SurfaceEffector2D _sE2D; public SurfaceEffector2D SE2D => _sE2D;
 
@@ -75,10 +74,23 @@ public class PlayerSlideController : MonoBehaviour
         Rotate(_moveInputValue, _rb2D);
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if ()
-    }*/
+        if (collision.collider.CompareTag(_groundTag) && !_crashDetector.IsCrashing)
+        {
+            AudioSource currentlyPlayedSource = _audioManager.PlaySound(_slideSFX);
+            currentlyPlayedSource.volume = _audioManager.SoundsVolume / 1.5f;
+            _audioManager.PlayRepeatedly(currentlyPlayedSource);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag(_groundTag) && !_crashDetector.IsCrashing)
+        {
+            AudioSource currentlyPlayedSource = _audioManager.PlaySound(_airUp);
+            currentlyPlayedSource.volume = _audioManager.SoundsVolume / 1.5f;
+        }
+    }
 
     /* wraped the actual methods in use case methods for additional changes of outside control, for instance if I want to change 
     animation when input is disabled or enabled I will put it in here and use this instead of the actual method.*/

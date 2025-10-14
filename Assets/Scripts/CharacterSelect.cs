@@ -24,6 +24,7 @@ public class CharacterSelect : MonoBehaviour
     {
         if (!Inventory.Instance.OnUnlockedCharactersEvent.Contains(_id)) return;
 
+        _gameManager.AudioManager.StopMusic();
         _playerController.SR.sprite = _characterSprite; // set player's desired sprite
         _scoreCanvasGO.SetActive(true); // turn on the score canvas
         _inventoryCanvasGO.SetActive(false); // turn off the inventory canvas
