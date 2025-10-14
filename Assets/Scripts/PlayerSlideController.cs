@@ -28,6 +28,12 @@ public class PlayerSlideController : MonoBehaviour
     private float _totalRot = 0.0f;
     private int _flipCount = 0;
 
+    [Header("SFX")]
+    [SerializeField] private AudioClip _crashSFX;
+    [SerializeField] private AudioClip _slideSFX;
+    [SerializeField] private AudioClip _landSFX;
+    [SerializeField] private AudioClip _airUp;
+
 
     [Header("Components")]
     [SerializeField] private Rigidbody2D _rb2D;
@@ -68,6 +74,11 @@ public class PlayerSlideController : MonoBehaviour
         Move(_moveInputValue, _rb2D);
         Rotate(_moveInputValue, _rb2D);
     }
+
+    /*private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if ()
+    }*/
 
     /* wraped the actual methods in use case methods for additional changes of outside control, for instance if I want to change 
     animation when input is disabled or enabled I will put it in here and use this instead of the actual method.*/
