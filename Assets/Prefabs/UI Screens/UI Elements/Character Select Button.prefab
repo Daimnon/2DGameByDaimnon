@@ -436,11 +436,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5192b1fc06905c743a1436119d844aee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreCanvasGO: {fileID: 0}
+  _gameManager: {fileID: 0}
   _playerController: {fileID: 0}
-  _characterSelectionCanvasGo: {fileID: 0}
   _id: 0
   _characterSprite: {fileID: 3257370244220868905, guid: 1bcc7bcfb03635344a5af81a4cc46f22, type: 3}
+  _scoreCanvasGO: {fileID: 0}
+  _inventoryCanvasGO: {fileID: 0}
+  _characterSelectionCanvasGo: {fileID: 0}
 --- !u!114 &5094241586230479877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,10 +458,10 @@ MonoBehaviour:
   _characterSelectBtn: {fileID: 2228447971835539621}
   _amountText: {fileID: 2678972595526987522}
   _coinIcon: {fileID: 7606609950672787779}
-  _closedLock: {fileID: 5121576683741818488}
   _lockedOverlay: {fileID: 3605513785131348820}
   _openLock: {fileID: 1276177807245905545}
   _errorPanel: {fileID: 0}
+  _buyBtn: {fileID: 7269762553468960834}
   _id: 1
   _amountToUnlock: 10
 --- !u!1 &3605513785131348820

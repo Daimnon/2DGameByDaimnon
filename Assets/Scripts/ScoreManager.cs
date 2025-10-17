@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddFlipScore(int currentFlipCount)
     {
-        _totalFlipScore += currentFlipCount * _flipScore;
+        _totalFlipScore = currentFlipCount * _flipScore;
         _onUpdateFlipScoreEvent?.Invoke(_totalFlipScore);
         Debugger.Log("Invoked _onUpdateFlipScoreEvent");
     }
@@ -100,6 +100,12 @@ public class ScoreManager : MonoBehaviour
         Debugger.Log("Invoked _onUpdateLevelScoreEvent " + _totalLevelScore + " when Finished Level");
         _onUpdateTotalScoreEvent?.Invoke(_totalScore);
         Debugger.Log("Invoked _onUpdateTotalScoreEvent " + _totalScore + " when Finished Level");
+
+        Inventory inventory = Inventory.Instance;
+        if (inventory != null)
+        {
+            inventory.AddCurrency(_totalScore / 2);
+        }
     }
     private void CalculateScoreFailed()
     {

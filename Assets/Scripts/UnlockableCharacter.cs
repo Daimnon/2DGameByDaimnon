@@ -16,6 +16,7 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
     [SerializeField] private GameObject _lockedOverlay;
     [SerializeField] private GameObject _openLock;
     [SerializeField] private GameObject _errorPanel;
+    [SerializeField] private GameObject _buyBtn;
 
     [Header("Data")]
     [SerializeField] private int _id;
@@ -53,6 +54,7 @@ public class UnlockableCharacter : MonoBehaviour, ISaveable
         _lockedOverlay.SetActive(false);
         _openLock.SetActive(false);
         _characterSelectBtn.enabled = true;
+        _buyBtn.SetActive(false);
     }
 
     public void LoadData(GameData data)

@@ -24,6 +24,7 @@ public class Inventory : MonoBehaviour
 
     private int _currency; public int Currency => _currency;
 
+
     private HashSet<int> _onUnlockedCharactersEvent = new(1) { 0 };
     public HashSet<int> OnUnlockedCharactersEvent => _onUnlockedCharactersEvent;
 
@@ -49,6 +50,7 @@ public class Inventory : MonoBehaviour
     {
         _currency += amount;
         _onUpdateCurrencyEvent?.Invoke(_currency);
+        SaveDataManager.Instance.SaveGame();
         Debugger.Log("Invoked _onUpdateCurrencyEvent, added " + amount + " to currency");
     }
     public void ReduceCurrency(int amount)
@@ -88,6 +90,8 @@ public class Inventory : MonoBehaviour
         data.Currency = _currency;
         data.UnlockedCharacters = _onUnlockedCharactersEvent.ToArray();
     }
+
+    public void TranslateScoreToCoins() { }
 
     [ContextMenu("GiveMeMoneyyy")]
     private void MoneyCheat()

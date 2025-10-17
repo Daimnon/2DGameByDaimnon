@@ -111,6 +111,9 @@ public class GameManager : MonoBehaviour
         _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex - 1], timeLeft); // if we reached here it's penalty time.
         Debugger.Log("Invoked _onUpdateTimeScoreEvent when Player is in Overtime");
 
+        while (!_finishedLevel && !_crashDetector.HasCrashed) yield return null;
+        _onLevelEndEvent?.Invoke(_finishedLevel);
+
         _levelTimerRoutine = null;
     }
 
