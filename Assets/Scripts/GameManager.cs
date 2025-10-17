@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private int _levelIndex;
-    [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
+    [SerializeField] private int[] _maxLevelTime; // lvl 1 = 40 (20 secs to finish level * 2)
     [SerializeField] private AudioClip[] _musicPerLevel; // lvl 1 = 40 (20 secs to finish level fast, but not fastest * 2)
     private bool _finishedLevel = false;
 
@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
             {
                 timeLeft = 0.0f;
                 _onUpdateTimeScoreEvent?.Invoke(_maxLevelTime[_levelIndex - 1], timeLeft);
+                _audioManager.StopMusic();
                 Debugger.Log("Invoked _onUpdateTimeScoreEvent when Player Crashed");
                 yield return null;
 
@@ -113,6 +114,8 @@ public class GameManager : MonoBehaviour
 
         while (!_finishedLevel && !_crashDetector.HasCrashed) yield return null;
         _onLevelEndEvent?.Invoke(_finishedLevel);
+
+        if (!_finishedLevel) _audioManager.StopMusic();
 
         _levelTimerRoutine = null;
     }
