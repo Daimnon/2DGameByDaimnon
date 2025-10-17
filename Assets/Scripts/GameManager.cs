@@ -123,7 +123,16 @@ public class GameManager : MonoBehaviour
     public void NextButton()
     {
         // quick and dirty for keeping the game loop
-        SceneManager.LoadScene(0);
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+
+        if (nextSceneIndex > SceneManager.sceneCount || !_finishedLevel) // check if actually fixes the last level issue
+        {
+            SceneManager.LoadScene(currentSceneIndex);
+            return;
+        }
+
+        SceneManager.LoadScene(nextSceneIndex);
     }
 
     private void OnFinishedGame()
