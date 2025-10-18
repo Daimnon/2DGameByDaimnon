@@ -25,6 +25,7 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int _maxTimeScore = 75;
     [SerializeField] private int _levelScore = 100;
     [SerializeField] private int _overTimePenalty = 50;
+    [SerializeField] private AudioClip _getCoinsSFX;
     private int _levelIndex = 1; // set from GameManager at start
     private int _totalFlipScore = 0;
     private int _totalTimeScore = 0;
@@ -105,6 +106,7 @@ public class ScoreManager : MonoBehaviour
         if (inventory != null)
         {
             inventory.AddCurrency(_totalScore / 2);
+            _gameManager.AudioManager.PlaySound(_getCoinsSFX);
         }
     }
     private void CalculateScoreFailed()

@@ -18924,6 +18924,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3603926426847176615, guid: 6c05130a75a3e644fb2194e39b4ed264, type: 3}
+      propertyPath: _getCoinsSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 00618e2dca63cfb479aa214bf14a38f3, type: 3}
     - target: {fileID: 5256243735979880769, guid: 6c05130a75a3e644fb2194e39b4ed264, type: 3}
       propertyPath: _finishLine
       value: 
