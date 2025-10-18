@@ -162,6 +162,7 @@ public class PlayerSlideController : MonoBehaviour
     {
         _powerupDeactivatedParticles.Stop();
         _powerupActiveParticles.Play();
+        _audioManager.PlaySound(powerup.PowerupActivatedSFX);
         if (powerup.PowerupType == PowerupType.Torque)
         {
             _torqueAmount += powerup.Value;
@@ -171,6 +172,7 @@ public class PlayerSlideController : MonoBehaviour
     {
         _powerupActiveParticles.Stop();
         _powerupDeactivatedParticles.Play();
+        _audioManager.PlaySound(powerup.PowerupEndedSFX);
         if (powerup.PowerupType == PowerupType.Torque)
         {
             _torqueAmount -= powerup.Value;

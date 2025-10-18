@@ -741,6 +741,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Select Button (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -874,6 +902,34 @@ PrefabInstance:
     - target: {fileID: 2115850235976865152, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Name
       value: Character Select Button (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
@@ -1009,6 +1065,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Select Button (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1143,6 +1227,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Select Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1272,6 +1384,34 @@ PrefabInstance:
     - target: {fileID: 2115850235976865152, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Name
       value: Character Select Button (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
@@ -1407,6 +1547,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character Select Button (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1540,6 +1708,34 @@ PrefabInstance:
     - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x
@@ -1806,6 +2002,34 @@ PrefabInstance:
     - target: {fileID: 2115850235976865152, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Name
       value: Character Select Button (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: CharacterSelect, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2228447971835539621, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3586874715630452025, guid: bc966436de1d1744f9f2d8cdbefa4e4c, type: 3}
       propertyPath: m_Pivot.x

@@ -15,3 +15,5 @@ MonoBehaviour:
   _powerupType: 0
   _value: 150
   _duration: 6
+  _powerupActivatedSFX: {fileID: 8300000, guid: c151e11721c59a843a8be4a72224c292, type: 3}
+  _powerupEndedSFX: {fileID: 8300000, guid: 39275771ace57d548811ad4a83b56307, type: 3}

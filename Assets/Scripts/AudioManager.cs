@@ -32,6 +32,14 @@ public class AudioManager : MonoBehaviour
         _musicSource.Stop();
         _musicSource.clip = clip;
         _musicSource.Play();
+        _musicSource.loop = true;
+    }
+    public void PlayMusicOnShot(AudioClip clip)
+    {
+        _musicSource.loop = false;
+        _musicSource.Stop();
+        _musicSource.clip = clip;
+        _musicSource.Play();
     }
     public void StopMusic()
     {
