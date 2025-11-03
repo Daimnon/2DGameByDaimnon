@@ -123,9 +123,9 @@ public class EndGameScoreDisplay : MonoBehaviour
         _totalScoreIconBg.transform.parent.gameObject.SetActive(true); // really really really bad.
         yield return new WaitForSeconds(_timeToShowNextBtn);
 
-        yield return new WaitForSeconds(0.8f);
+        /*yield return new WaitForSeconds(0.8f);
         _earnCoinsAnimation.CoinShadow.SetActive(true);
-        yield return _earnCoinsAnimation.PlayCoinAnimation();
+        yield return _earnCoinsAnimation.PlayCoinAnimation();*/
 
         _nextBtnBg.SetActive(true);
     }
@@ -140,6 +140,10 @@ public class EndGameScoreDisplay : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         _totalScoreIconBg.transform.parent.gameObject.SetActive(true); // really really really bad.
         yield return new WaitForSeconds(_timeToShowNextBtn);
+
+        yield return new WaitForSeconds(0.8f);
+        _earnCoinsAnimation.CoinShadow.SetActive(true);
+        yield return _earnCoinsAnimation.PlayCoinAnimation();
 
         _nextBtnBg.SetActive(true);
     }
