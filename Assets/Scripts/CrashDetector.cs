@@ -34,6 +34,7 @@ public class CrashDetector : MonoBehaviour
         _isCrashing = true;
         _crashParticles.Play();
         _audioManager.PlaySound(_crashSFX);
+        _audioManager.PlayShortHaptic();
         _onCrash?.Invoke();
         Debugger.Log("Invoked OnCrash");
 

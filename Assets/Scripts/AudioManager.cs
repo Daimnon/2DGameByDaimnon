@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -19,6 +18,9 @@ public class AudioManager : MonoBehaviour
     private Coroutine _crossfadeRoutine;
     private Coroutine _repeatedlyPlayedRoutine;
     private Coroutine _sequentialyPlayedRoutine;
+
+    [Header("Haptics")]
+    [SerializeField] private bool _isHapticsOn = true;
 
     private void OnApplicationQuit()
     {
@@ -145,6 +147,12 @@ public class AudioManager : MonoBehaviour
         _sequentialyPlayedRoutine = null;
     }
 
+    public void PlayShortHaptic() // currently not short, need customized solution
+    {
+        if (!_isHapticsOn) return;
+        Handheld.Vibrate();
+    }
+
     #region Unity Events
     public void ToggleMusicVolume(bool isOn)
     {
@@ -155,6 +163,10 @@ public class AudioManager : MonoBehaviour
         _soundsVolume = isOn ? 0.75f : 0.0f;
         _soundsSource1.volume = _soundsVolume;
         _soundsSource2.volume = _soundsVolume;
+    }
+    public void ToggleHaptics(bool isOn)
+    {
+        _isHapticsOn = isOn;
     }
     #endregion
 }

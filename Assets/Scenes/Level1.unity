@@ -518,6 +518,7 @@ MonoBehaviour:
   _crossfadeDuration: 0.3
   _soundsSource1: {fileID: 469950299}
   _soundsSource2: {fileID: 469950298}
+  _isHapticsOn: 1
 --- !u!4 &469950302
 Transform:
   m_ObjectHideFlags: 0
@@ -2735,6 +2736,66 @@ PrefabInstance:
     - target: {fileID: 5692909955780360232, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 469950301}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 469950301}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ToggleHaptics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ToggleHaptics
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: AudioManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleTrue.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596097675437483952, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
+      propertyPath: _onToggleFalse.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6970101601503547730, guid: c4d5b9e1c2dc1fe43a268b92dd6f240c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
