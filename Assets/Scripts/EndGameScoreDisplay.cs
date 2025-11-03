@@ -46,8 +46,8 @@ public class EndGameScoreDisplay : MonoBehaviour
     [SerializeField] private int _timeToShowNextBtn = 1;
     [SerializeField] private string _crashedTitle = "Crashed";
 
-    /*[Header("Animations")]
-    [SerializeField] private UIBounceEffect _bounceEffect;*/ // should be smale dance effect and not bounce.
+    [Header("Animations")]
+    [SerializeField] private EarnCoinsAnimation _earnCoinsAnimation; // should be smale dance effect and not bounce.
 
     private void Start()
     {
@@ -123,6 +123,10 @@ public class EndGameScoreDisplay : MonoBehaviour
         _totalScoreIconBg.transform.parent.gameObject.SetActive(true); // really really really bad.
         yield return new WaitForSeconds(_timeToShowNextBtn);
 
+        yield return new WaitForSeconds(0.8f);
+        _earnCoinsAnimation.CoinShadow.SetActive(true);
+        yield return _earnCoinsAnimation.PlayCoinAnimation();
+
         _nextBtnBg.SetActive(true);
     }
     private IEnumerator CrashedPanelAnimations()
@@ -139,7 +143,6 @@ public class EndGameScoreDisplay : MonoBehaviour
 
         _nextBtnBg.SetActive(true);
     }
-
     // scores should appear one after another, after SHORT time to read reveal the next btn
 
     /*private void ClearFlipBounceCoroutine()
