@@ -4,6 +4,10 @@ using TMPro;
 
 public class EarnCoinsAnimation : MonoBehaviour
 {
+    [Header("Systems")]
+    [SerializeField] private ScoreManager _scoreManager;
+
+    [Header("Finish Level Successfuly Animation")]
     [SerializeField] private Transform _coinTr;
     [SerializeField] private GameObject _coinShadow;
     public GameObject CoinShadow => _coinShadow;
@@ -34,13 +38,19 @@ public class EarnCoinsAnimation : MonoBehaviour
 
     private void Awake()
     {
+        _scoreManager.OnUpdateTotalScoreEvent += UpdateEarningsText;
         _coinRect = _coinTr as RectTransform;
         _textRect = _earningsText.rectTransform;
         _originalAnchoredPosition = _coinRect.anchoredPosition;
         _originalScale = _coinTr.localScale;
         _originalTextScale = _textRect.localScale;
         _textRect.localScale = Vector3.zero;
-        _coinTr.localScale = Vector3.zero; // start hidden
+        _coinTr.localScale = Vector3.zero;
+        _coinShadow.SetActive(false);
+    }
+    private void OnDestroy()
+    {
+        _scoreManager.OnUpdateTotalScoreEvent -= UpdateEarningsText;
     }
 
     public Coroutine PlayCoinAnimation()
@@ -75,7 +85,7 @@ public class EarnCoinsAnimation : MonoBehaviour
 
         // --- rotate & move text ---
         timer = 0f;
-        Vector2 textStartPos = _originalAnchoredPosition; // start from coin’s position
+        Vector2 textStartPos = _originalAnchoredPosition;
         Vector2 textEndPos = _textDestination.anchoredPosition;
         float textScaleInDuration = _rotateDuration * 0.3f;
         float textScaleOutStart = _rotateDuration * 0.7f;
@@ -85,16 +95,17 @@ public class EarnCoinsAnimation : MonoBehaviour
             timer += Time.deltaTime;
             float t = timer / _rotateDuration;
 
-            // Rotate coin
+            // rotate coin
             _coinTr.localEulerAngles = new Vector3(0, 0, _rotationCurve.Evaluate(t));
+            
 
             if (_textRect != null)
             {
-                // Move text from coin to destination
+                // move text from coin to destination
                 float moveT = Mathf.Clamp01(t * _textMoveFactor);
                 _textRect.anchoredPosition = Vector2.Lerp(textStartPos, textEndPos, moveT);
 
-                // Scale in/out
+                // scale in/out
                 float scaleValue = 1f;
                 if (timer < textScaleInDuration)
                 {
@@ -125,9 +136,13 @@ public class EarnCoinsAnimation : MonoBehaviour
             yield return null;
         }
 
-        // Reset
+        // --- reset ---
         _coinTr.localScale = Vector3.zero;
         _coinRect.anchoredPosition = _originalAnchoredPosition;
         _coinTr.localEulerAngles = Vector3.zero;
+    }
+    private void UpdateEarningsText(int totalScore)
+    {
+        _earningsText.text = _scoreManager.CalculateCurrencyFromScore(totalScore).ToString();
     }
 }

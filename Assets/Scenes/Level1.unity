@@ -1246,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1727633783
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19048,11 +19048,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f299883d9058b4c44abea577592e83d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _scoreManager: {fileID: 769447373}
   _coinTr: {fileID: 1340297742}
   _coinShadow: {fileID: 1727633782}
   _earningsText: {fileID: 278830217}
   _textDestination: {fileID: 490700477}
   _bounceHeight: 50
+  _textMoveFactor: 3
   _appearCurve:
     serializedVersion: 2
     m_Curve:

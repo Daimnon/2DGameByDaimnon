@@ -17,7 +17,6 @@ public class ScoreManager : MonoBehaviour
     public Action<int> OnUpdateTotalScoreEvent { get => _onUpdateTotalScoreEvent; set => _onUpdateTotalScoreEvent = value; }
 
     [Header("Systems")]
-
     [SerializeField] private GameManager _gameManager;
 
     [Header("Settings")]
@@ -105,7 +104,7 @@ public class ScoreManager : MonoBehaviour
         Inventory inventory = Inventory.Instance;
         if (inventory != null)
         {
-            inventory.AddCurrency(_totalScore / 2);
+            inventory.AddCurrency(CalculateCurrencyFromScore(_totalScore));
             _gameManager.AudioManager.PlaySound(_getCoinsSFX);
         }
     }
@@ -123,5 +122,10 @@ public class ScoreManager : MonoBehaviour
         Debugger.Log("Invoked _onUpdateLevelScoreEvent " + _totalLevelScore + " when Crashed");
         _onUpdateTotalScoreEvent?.Invoke(_totalScore);
         Debugger.Log("Invoked _onUpdateTotalScoreEvent " + _totalScore + " when Crashed");
+    }
+
+    public int CalculateCurrencyFromScore(int totalScore)
+    {
+        return totalScore / 2;
     }
 }
